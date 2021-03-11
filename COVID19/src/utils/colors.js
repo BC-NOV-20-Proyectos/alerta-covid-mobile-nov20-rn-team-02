@@ -6,6 +6,7 @@ export default colors = {
   otherPurple: 'ADAAF1',
   blue: '#68A1CF',
   gray: '#83898C',
+  lightGray: '#EEECF1',
   orange: '#D06053',
   pinkDark: '#5B304C',
   pinkLight: '#DD6C7E',
