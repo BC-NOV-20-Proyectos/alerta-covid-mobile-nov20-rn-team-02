@@ -2,6 +2,7 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import OnboardingScreen from '../screens/OnboardingScreen';
+import Locations from '../screens/Locations';
 import Login from '../screens/Login';
 import Main from '../screens/main';
 
