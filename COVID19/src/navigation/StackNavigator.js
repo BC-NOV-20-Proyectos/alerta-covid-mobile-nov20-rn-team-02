@@ -5,6 +5,7 @@ import OnboardingScreen from '../screens/OnboardingScreen';
 import Locations from '../screens/Locations';
 import Login from '../screens/Login';
 import Main from '../screens/main';
+import RegisterSymptoms from '../screens/registerSymptoms';
 
 const AppStack = createStackNavigator();
 
@@ -19,6 +20,7 @@ const StackNavigator = () => {
         />
         <AppStack.Screen name="Login" component={Login} />
         <AppStack.Screen name="Main" component={Main} />
+        <AppStack.Screen name="RegisterSymptoms" component={RegisterSymptoms} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

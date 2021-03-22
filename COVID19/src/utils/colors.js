@@ -1,4 +1,4 @@
-export default colors = {
+ export default colors = {
   white: '#F3F2FA',
   purpleLight: '#C2B6FC',
   purpleMedium: '#5A4DCC',
