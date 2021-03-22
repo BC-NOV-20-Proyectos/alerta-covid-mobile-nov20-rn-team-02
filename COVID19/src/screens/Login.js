@@ -17,7 +17,7 @@ const Login = ({navigation}) => {
       (formData.usuario || formData.contrasenia) &&
       (formData.usuario !== '' || formData.contrasenia !== '')
     ) {
-      const url = 'https://hidden-cliffs-21927.herokuapp.com/user/sign_in?user[email]='+formData.usuario+'&user[password]='+formData.contrasenia;
+      const url = constans.urlAPI + '?user[email]='+formData.usuario+'&user[password]='+formData.contrasenia;
       //Aquí colocar antes de enviar los datos del formulario
       axios
         .post(
@@ -57,5 +57,3 @@ function defaultValue() {
   };
 }
 export default Login;
-
-
