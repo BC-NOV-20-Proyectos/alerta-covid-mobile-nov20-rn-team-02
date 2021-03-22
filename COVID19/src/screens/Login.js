@@ -42,8 +42,8 @@ const Login = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.containerContent}>
         <Text style={styles.txtTitle}>{constans.login}</Text>
-        <Input iconName="user" style={styles.input} placeholderTxt={constans.email} onCh={(e) => onChange(e, 'usuario')} />
-        <Input iconName="lock" style={styles.input} placeholderTxt={constans.pw} onCh={(e) => onChange(e, 'contrasenia')} />
+        <Input iconName="user" style={styles.input} placeholderTxt={constans.email} onChangeInput={(e) => onChange(e, 'usuario')} />
+        <Input iconName="lock" style={styles.input} placeholderTxt={constans.pw} onChangeInput={(e) => onChange(e, 'contrasenia')} />
         <Button text={constans.login} onP={putLoginOk}/>             
       </View>
       <Text style={styles.textForgotPW}> {constans.forgotPW} </Text>
