@@ -3,7 +3,7 @@ import { View, TextInput } from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/loginAuthStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-const Input = ({placeholderTxt, iconName, onCh}) => {
+const Input = ({placeholderTxt, iconName, onChangeInput}) => {
     return(
         <View style={styles.inputContainer}>
             <Icon name={iconName} color="gray" size={25} style={{marginStart: 15, alignSelf:'center'}}/>
@@ -11,7 +11,7 @@ const Input = ({placeholderTxt, iconName, onCh}) => {
                 placeholder={placeholderTxt}
                 secureTextEntry={placeholderTxt === 'Password' && true}
                 placeholderTextColor="gray"
-                onChange={onCh}
+                onChange={onChangeInput}
             />
         </View>
     );
