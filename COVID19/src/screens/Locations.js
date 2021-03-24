@@ -2,52 +2,32 @@ import React from 'react';
 import {TouchableOpacity, Text, View, FlatList} from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/locationsStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
-
-const getFixedDate = () => {
-  let date = new Date();
-  let day = date.getDate();
-  let month = date.getMonth() + 1;
-  let year = date.getFullYear();
-  let fullDate = '';
-  if (month < 10) {
-    fullDate = `${day}/0${month}/${year}`;
-  } else {
-    fullDate = `${day}/0${month}/${year}`;
-  }
-  return fullDate;
-};
-
-const getFixedTime = () => {
-  let today = new Date();
-  let time =
-    today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-  return time;
-};
+import {MainFunctions} from '../utils/functions/mainFunctions';
 
 DATA = [
   {
     id: '1',
     place: 'Soriana',
-    date: getFixedDate(),
-    time: getFixedTime(),
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
   },
   {
     id: '2',
     place: 'Mikaza',
-    date: getFixedDate(),
-    time: getFixedTime(),
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
   },
   {
     id: '3',
     place: 'Stukasa',
-    date: getFixedDate(),
-    time: getFixedTime(),
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
   },
   {
     id: '4',
     place: 'Soriana',
-    date: getFixedDate(),
-    time: getFixedTime(),
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
   },
 ];
 

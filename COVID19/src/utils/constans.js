@@ -6,5 +6,6 @@
   forgotPW: 'Forgot password?',
   mainQuest: 'What do you want to do?',
   urlAPI: 'https://hidden-cliffs-21927.herokuapp.com/user/sign_in',
+  QuestionSymptoms: 'What symptoms do you have?',
 };
 export default constans;
