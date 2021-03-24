@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import {Text, View, TextInput, TouchableOpacity, FlatList} from 'react-native';
 import CustomCheck from '../components/CustomCheck';
 import Button from '../components/Button';
+import constans from '../utils/constans';
 
 import styles from '../utils/styles/symptomsStyles/symptomsStyles';
 
@@ -52,7 +53,7 @@ const RegisterSymptoms = () => {
   return (
     <View style={styles.supermainContainer}>
       <View style={styles.mainContainer}>
-        <Text style={styles.title}>What symptoms do you have?</Text>
+        <Text style={styles.title}>{constans.QuestionSymptoms}</Text>
         <FlatList
           style={styles.listStyles}
           data={DATA}

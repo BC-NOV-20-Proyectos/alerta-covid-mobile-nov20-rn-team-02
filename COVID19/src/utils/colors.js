@@ -10,4 +10,6 @@
   orange: '#D06053',
   pinkDark: '#5B304C',
   pinkLight: '#DD6C7E',
+  isCheckedColor: "#5A4DCC",
+  isUncheckedColor: "#5A4DCC",
 };

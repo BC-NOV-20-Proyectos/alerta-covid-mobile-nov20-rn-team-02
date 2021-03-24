@@ -20,23 +20,23 @@ const Main = ({navigation}) => {
         </View>
         <View style={styles.optionsUp}>
           <ButtonMain
-            text="Register Symptoms"
+            captionButton="Register Symptoms"
             img={require('../utils/images/symptoms.png')}
-            onP={() => {
+            onPush={() => {
               navigation.navigate('RegisterSymptoms');
             }}
           />
           <ButtonMain
-            text="Register Labs"
+            captionButton="Register Labs"
             img={require('../utils/images/Labs.png')}
-            onP={() => {
+            onPush={() => {
               navigation.navigate('Login');
             }}
           />
           <ButtonMain
-            text="See Locations"
+            captionButton="See Locations"
             img={require('../utils/images/locations.png')}
-            onP={() => {
+            onPush={() => {
               navigation.navigate('Locations');
             }}
           />
