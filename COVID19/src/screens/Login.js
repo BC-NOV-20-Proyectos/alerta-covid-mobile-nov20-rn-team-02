@@ -23,7 +23,14 @@ const Login = ({navigation}) => {
       (formData.usuario || formData.contrasenia) &&
       (formData.usuario !== '' || formData.contrasenia !== '')
     ) {
-      const url = constans.urlAPI + '?user[email]='+formData.usuario+'&user[password]='+formData.contrasenia;
+      ///riveragmariam@gmail.com
+      //1g5717l
+      const url =
+        constans.urlAPI +
+        '?user[email]=' +
+        formData.usuario +
+        '&user[password]=' +
+        formData.contrasenia;
       //Aquí colocar antes de enviar los datos del formulario
       axios
         .post(url)
@@ -46,9 +53,19 @@ const Login = ({navigation}) => {
     <View style={styles.container}>
       <View style={styles.containerContent}>
         <Text style={styles.txtTitle}>{constans.login}</Text>
-        <Input iconName="user" style={styles.input} placeholderTxt={constans.email} onChangeInput={(e) => onChange(e, 'usuario')} />
-        <Input iconName="lock" style={styles.input} placeholderTxt={constans.pw} onChangeInput={(e) => onChange(e, 'contrasenia')} />
-        <Button text={constans.login} onP={putLoginOk}/>
+        <Input
+          iconName="user"
+          style={styles.input}
+          placeholderTxt={constans.email}
+          onChangeInput={(e) => onChange(e, 'usuario')}
+        />
+        <Input
+          iconName="lock"
+          style={styles.input}
+          placeholderTxt={constans.pw}
+          onChangeInput={(e) => onChange(e, 'contrasenia')}
+        />
+        <Button text={constans.login} onP={putLoginOk} />
       </View>
       <Text style={styles.textForgotPW}> {constans.forgotPW} </Text>
     </View>

@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignSelf: 'center',
     marginTop: 35,
+
   },
   textQuestion: {
     color: colors.purpleMedium,
@@ -39,6 +40,7 @@ const styles = StyleSheet.create({
     color: colors.purpleDark,
     fontSize: 20,
     fontWeight: 'bold',
+    textAlign: 'center',
   },
   btnLogo: {
     width: 80,
