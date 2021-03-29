@@ -6,8 +6,8 @@ import colors from '../utils/colors';
 const OnboardingScreen = ({navigation}) => {
   return (
     <Onboarding
-      onSkip={() => navigation.navigate('Login')}
-      onDone={() => navigation.navigate('Login')}
+      onSkip={() => navigation.navigate('Camera')}
+      onDone={() => navigation.navigate('Camera')}
       pages={[
         {
           backgroundColor: colors.purpleLight,

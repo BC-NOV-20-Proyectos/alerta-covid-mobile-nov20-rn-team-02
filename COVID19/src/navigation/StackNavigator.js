@@ -8,6 +8,7 @@ import Main from '../screens/main';
 import RegisterSymptoms from '../screens/registerSymptoms';
 import TestType from '../screens/TestType';
 import TestDetails from '../screens/TestDetails';
+import Camera from '../screens/Camera';
 
 const AppStack = createStackNavigator();
 
@@ -20,6 +21,7 @@ const StackNavigator = () => {
           component={OnboardingScreen}
           options={{tabBarLabel: 'COVID19 Alert'}}
         />
+        <AppStack.Screen name="Camera" component={Camera} />
         <AppStack.Screen name="Login" component={Login} />
         <AppStack.Screen name="Main" component={Main} />
         <AppStack.Screen name="RegisterSymptoms" component={RegisterSymptoms} />
