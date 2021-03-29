@@ -2,10 +2,7 @@ import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import constans from '../utils/constans';
 import Button from '../components/Button';
-
 import styles from '../utils/styles/testDetailsStyles/testDetailsStyles';
-
-//import DateTimePicker from '@react-native-community/datetimepicker';
 import DatePicker from 'react-native-date-picker';
 import ComboBox from 'react-native-combobox';
 import colors from '../utils/colors';

@@ -1,16 +1,9 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import {Text, View} from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/loginAuthStyles';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import constans from '../utils/constans';
-import {NavigationHelpersContext} from '@react-navigation/core';
 import axios from 'axios';
 
 const Login = ({navigation}) => {
@@ -23,15 +16,12 @@ const Login = ({navigation}) => {
       (formData.usuario || formData.contrasenia) &&
       (formData.usuario !== '' || formData.contrasenia !== '')
     ) {
-      ///riveragmariam@gmail.com
-      //1g5717l
       const url =
         constans.urlAPI +
         '?user[email]=' +
         formData.usuario +
         '&user[password]=' +
         formData.contrasenia;
-      //Aquí colocar antes de enviar los datos del formulario
       axios
         .post(url)
         .then((res) => {
@@ -44,7 +34,6 @@ const Login = ({navigation}) => {
         .catch((err) => {
           console.log(err);
         });
-      //adicionar el token con la respuesta del ws
     } else {
       console.log('Error con el formulario');
     }
