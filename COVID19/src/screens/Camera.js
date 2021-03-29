@@ -1,11 +1,14 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, StyleSheet, TouchableOpacity, Linking} from 'react-native';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 
-const onSuccess = (e) => {
-  Linking.openURL(e.data).catch((err) =>
-    console.error('An error occured', err),
+const onSuccess = (text) => {
+  console.log(text.bounds.origin);
+  console.log(text.data);
+  console.log(text.bounds.origin[0].x);
+  alert(
+    `The place is ${text.data} and the coordenates are ${text.bounds.origin[0].x}`,
   );
 };
 
@@ -29,6 +32,7 @@ const Camera = () => {
           </TouchableOpacity>
         }
       />
+      <Text>Camera Screen</Text>
     </View>
   );
 };
