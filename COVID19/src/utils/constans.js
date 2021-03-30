@@ -14,5 +14,7 @@ const constans = {
   testDetails: 'Test details',
   selectDate: 'Select test date:',
   testResult: 'Select your test result',
+  typeUser: 'usuario',
+  typePass: 'contrasenia',
 };
 export default constans;

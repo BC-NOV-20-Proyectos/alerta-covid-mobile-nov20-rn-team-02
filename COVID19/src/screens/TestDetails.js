@@ -22,8 +22,7 @@ const TestDetails = () => {
       <DatePicker
         style={styles.picker}
         date={date}
-        textColor="#5A4DCC"
-        // fadeToColor={{background: 'red'}}
+        textColor={colors.datePickTestColor}
         androidVariant={'nativeAndroid'}
       />
       <Text style={styles.subTitle}>{constans.testResult}</Text>
