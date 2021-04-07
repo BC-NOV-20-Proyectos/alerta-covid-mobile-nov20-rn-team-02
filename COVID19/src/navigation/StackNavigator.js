@@ -21,12 +21,13 @@ const StackNavigator = () => {
           component={OnboardingScreen}
           options={{tabBarLabel: 'COVID19 Alert'}}
         />
-        <AppStack.Screen name="Camera" component={Camera} />
         <AppStack.Screen name="Login" component={Login} />
         <AppStack.Screen name="Main" component={Main} />
         <AppStack.Screen name="RegisterSymptoms" component={RegisterSymptoms} />
         <AppStack.Screen name="TestType" component={TestType} />
         <AppStack.Screen name="TestDetails" component={TestDetails} />
+        <AppStack.Screen name="Camera" component={Camera} />
+        <AppStack.Screen name="Locations" component={Locations} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

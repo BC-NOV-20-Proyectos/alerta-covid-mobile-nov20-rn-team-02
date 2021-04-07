@@ -13,19 +13,19 @@ DATA = [
   },
   {
     id: '2',
-    place: 'Mikaza',
+    place: 'MagmaLabs',
     date: MainFunctions.getFixedDate(),
     time: MainFunctions.getFixedTime(),
   },
   {
     id: '3',
-    place: 'Stukasa',
+    place: 'Starbucks',
     date: MainFunctions.getFixedDate(),
     time: MainFunctions.getFixedTime(),
   },
   {
     id: '4',
-    place: 'Soriana',
+    place: 'Las Brasas',
     date: MainFunctions.getFixedDate(),
     time: MainFunctions.getFixedTime(),
   },
@@ -54,7 +54,7 @@ const Item = ({place, date, time}) => {
   );
 };
 
-const Location = () => {
+const Location = ({navigation}) => {
   return (
     <View style={styles.mainMainConatiner}>
       <View style={styles.mainContainer}>
@@ -70,7 +70,9 @@ const Location = () => {
         />
       </View>
       <View>
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Camera')}
+          style={styles.buttonContainer}>
           <Icon size={60} color="#5A4DCC" name="pluscircleo" />
         </TouchableOpacity>
       </View>
