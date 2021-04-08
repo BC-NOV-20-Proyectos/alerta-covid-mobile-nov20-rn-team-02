@@ -4,6 +4,9 @@ import styles from '../utils/styles/loginAuthStyles/locationsStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {MainFunctions} from '../utils/functions/mainFunctions';
 
+import colors from '../utils/colors';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+
 DATA = [
   {
     id: '1',
@@ -73,7 +76,7 @@ const Location = ({navigation}) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('Camera')}
           style={styles.buttonContainer}>
-          <Icon size={60} color="#5A4DCC" name="pluscircleo" />
+          <Icon size={60} color={colors.purpleMedium} name="pluscircleo" />
         </TouchableOpacity>
       </View>
     </View>
