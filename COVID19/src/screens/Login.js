@@ -46,13 +46,13 @@ const Login = ({navigation}) => {
           iconName="user"
           style={styles.input}
           placeholderTxt={constans.email}
-          onChangeInput={(e) => onChange(e, 'usuario')}
+          onChangeInput={(e) => onChange(e, constans.typeUser)}
         />
         <Input
           iconName="lock"
           style={styles.input}
           placeholderTxt={constans.pw}
-          onChangeInput={(e) => onChange(e, 'contrasenia')}
+          onChangeInput={(e) => onChange(e, constans.typePass)}
         />
         <Button text={constans.login} onP={putLoginOk} />
       </View>

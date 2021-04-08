@@ -12,4 +12,5 @@
   pinkLight: '#DD6C7E',
   isCheckedColor: "#5A4DCC",
   isUncheckedColor: "#5A4DCC",
+  datePickTestColor: "#5A4DCC",
 };
