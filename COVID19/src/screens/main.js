@@ -30,7 +30,7 @@ const Main = ({navigation}) => {
             captionButton="Register Labs"
             img={require('../utils/images/Labs.png')}
             onPush={() => {
-              navigation.navigate('Login');
+              navigation.navigate('TestType');
             }}
           />
           <ButtonMain

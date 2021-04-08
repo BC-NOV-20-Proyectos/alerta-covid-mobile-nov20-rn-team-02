@@ -1,4 +1,4 @@
- const constans = {
+const constans = {
   welcome: 'Welcome',
   email: 'Email',
   pw: 'Password',
@@ -7,5 +7,14 @@
   mainQuest: 'What do you want to do?',
   urlAPI: 'https://hidden-cliffs-21927.herokuapp.com/user/sign_in',
   QuestionSymptoms: 'What symptoms do you have?',
+  testType: 'Test Type',
+  viralTest: 'Viral test',
+  bodyTest: 'Body test',
+  done: 'Done',
+  testDetails: 'Test details',
+  selectDate: 'Select test date:',
+  testResult: 'Select your test result',
+  typeUser: 'usuario',
+  typePass: 'contrasenia',
 };
 export default constans;
