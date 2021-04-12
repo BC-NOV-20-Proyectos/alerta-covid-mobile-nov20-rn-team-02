@@ -20,17 +20,10 @@ const Main = ({navigation}) => {
         </View>
         <View style={styles.optionsUp}>
           <ButtonMain
-            captionButton="Register Symptoms"
-            img={require('../utils/images/symptoms.png')}
-            onPush={() => {
-              navigation.navigate('RegisterSymptoms');
-            }}
-          />
-          <ButtonMain
             captionButton="Register Labs"
             img={require('../utils/images/Labs.png')}
             onPush={() => {
-              navigation.navigate('TestType');
+              navigation.navigate('ListTest');
             }}
           />
           <ButtonMain
