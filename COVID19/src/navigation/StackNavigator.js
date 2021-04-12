@@ -8,6 +8,7 @@ import Main from '../screens/main';
 import RegisterSymptoms from '../screens/registerSymptoms';
 import TestType from '../screens/TestType';
 import TestDetails from '../screens/TestDetails';
+import Camera from '../screens/Camera';
 
 const AppStack = createStackNavigator();
 
@@ -25,6 +26,8 @@ const StackNavigator = () => {
         <AppStack.Screen name="RegisterSymptoms" component={RegisterSymptoms} />
         <AppStack.Screen name="TestType" component={TestType} />
         <AppStack.Screen name="TestDetails" component={TestDetails} />
+        <AppStack.Screen name="Camera" component={Camera} />
+        <AppStack.Screen name="Locations" component={Locations} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

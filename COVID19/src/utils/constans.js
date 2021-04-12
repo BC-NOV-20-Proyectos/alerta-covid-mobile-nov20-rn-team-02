@@ -14,6 +14,7 @@ const constans = {
   testDetails: 'Test details',
   selectDate: 'Select test date:',
   testResult: 'Select your test result',
+  qrTitle: 'QR Place Scan',
   typeUser: 'usuario',
   typePass: 'contrasenia',
 };

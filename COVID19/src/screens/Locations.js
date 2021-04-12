@@ -4,6 +4,9 @@ import styles from '../utils/styles/loginAuthStyles/locationsStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {MainFunctions} from '../utils/functions/mainFunctions';
 
+import colors from '../utils/colors';
+import {Colors} from 'react-native/Libraries/NewAppScreen';
+
 DATA = [
   {
     id: '1',
@@ -13,19 +16,19 @@ DATA = [
   },
   {
     id: '2',
-    place: 'Mikaza',
+    place: 'MagmaLabs',
     date: MainFunctions.getFixedDate(),
     time: MainFunctions.getFixedTime(),
   },
   {
     id: '3',
-    place: 'Stukasa',
+    place: 'Starbucks',
     date: MainFunctions.getFixedDate(),
     time: MainFunctions.getFixedTime(),
   },
   {
     id: '4',
-    place: 'Soriana',
+    place: 'Las Brasas',
     date: MainFunctions.getFixedDate(),
     time: MainFunctions.getFixedTime(),
   },
@@ -54,7 +57,7 @@ const Item = ({place, date, time}) => {
   );
 };
 
-const Location = () => {
+const Location = ({navigation}) => {
   return (
     <View style={styles.mainMainConatiner}>
       <View style={styles.mainContainer}>
@@ -70,8 +73,10 @@ const Location = () => {
         />
       </View>
       <View>
-        <TouchableOpacity style={styles.buttonContainer}>
-          <Icon size={60} color="#5A4DCC" name="pluscircleo" />
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Camera')}
+          style={styles.buttonContainer}>
+          <Icon size={60} color={colors.purpleMedium} name="pluscircleo" />
         </TouchableOpacity>
       </View>
     </View>
