@@ -59,11 +59,6 @@ DATA = [
 const RegisterSymptoms = ({navigation}) => {
   function sendIncident() {
     Alert.alert('Inicendt sent Succesfully', 'Your Inicend was send', [
-      {
-        text: 'Cancel',
-        onPress: () => console.log('Cancel Pressed'),
-        style: 'cancel',
-      },
       {text: 'OK', onPress: () => navigation.navigate('Main')},
     ]);
   }
