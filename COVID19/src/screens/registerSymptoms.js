@@ -1,5 +1,12 @@
 import React, {useState} from 'react';
-import {Text, View, TextInput, TouchableOpacity, FlatList} from 'react-native';
+import {
+  Text,
+  View,
+  TextInput,
+  TouchableOpacity,
+  FlatList,
+  Alert,
+} from 'react-native';
 import CustomCheck from '../components/CustomCheck';
 import Button from '../components/Button';
 import constans from '../utils/constans';
@@ -49,7 +56,12 @@ DATA = [
   },
 ];
 
-const RegisterSymptoms = () => {
+const RegisterSymptoms = ({navigation}) => {
+  function sendIncident() {
+    Alert.alert('Inicendt sent Succesfully', 'Your Inicend was send', [
+      {text: 'OK', onPress: () => navigation.navigate('Main')},
+    ]);
+  }
   return (
     <View style={styles.supermainContainer}>
       <View style={styles.mainContainer}>
@@ -64,7 +76,7 @@ const RegisterSymptoms = () => {
       </View>
 
       <View style={styles.buttonContainer}>
-        <Button text="Done" />
+        <Button text="Done" onP={sendIncident} />
       </View>
     </View>
   );

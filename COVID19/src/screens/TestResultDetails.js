@@ -7,7 +7,7 @@ import DatePicker from 'react-native-date-picker';
 import ComboBox from 'react-native-combobox';
 import colors from '../utils/colors';
 
-const TestDetails = ({navigation}) => {
+const TestResultsDetails = ({navigation}) => {
   function navigate() {
     navigation.navigate('RegisterSymptoms');
   }
@@ -17,19 +17,18 @@ const TestDetails = ({navigation}) => {
 
   const [selectedValue, setSelectedValue] = useState('');
 
-  const values = ['Viral', 'Body'];
+  const values = ['Positive', 'Negative'];
   return (
     <View style={styles.mainContainer}>
-      <Text style={styles.title}>{constans.testDetails}</Text>
-      <Text style={styles.subTitle}>{constans.selectDate}</Text>
-      <Text style={styles.subTitle}>{constans.selectType}</Text>
+      <Text style={styles.title}>{constans.testResult}</Text>
+      <Text style={styles.subTitle}>{constans.selectResult}</Text>
       <View style={styles.conatinerCombo}>
         <ComboBox
           style={styles.ComboBox}
           values={values}
           onValueSelect={setSelectedValue}
           textColor={colors.purpleDark}
-          defaultValue={'Viral'}
+          defaultValue={'Negative'}
           backgroundColor={colors.purpleLight}
         />
       </View>
@@ -46,4 +45,4 @@ const TestDetails = ({navigation}) => {
   );
 };
 
-export default TestDetails;
+export default TestResultsDetails;
