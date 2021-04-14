@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {TouchableOpacity, Text, View, FlatList} from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/locationsStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -6,6 +6,8 @@ import {MainFunctions} from '../utils/functions/mainFunctions';
 
 import colors from '../utils/colors';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 DATA = [
   {
@@ -29,6 +31,42 @@ DATA = [
   {
     id: '4',
     place: 'Las Brasas',
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
+  },
+  {
+    id: '5',
+    place: 'Steren',
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
+  },
+  {
+    id: '6',
+    place: 'UDC',
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
+  },
+  {
+    id: '7',
+    place: 'TEC',
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
+  },
+  {
+    id: '8',
+    place: 'Tacos panchito',
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
+  },
+  {
+    id: '9',
+    place: 'Michidogos',
+    date: MainFunctions.getFixedDate(),
+    time: MainFunctions.getFixedTime(),
+  },
+  {
+    id: '10',
+    place: 'Tacos el amigo',
     date: MainFunctions.getFixedDate(),
     time: MainFunctions.getFixedTime(),
   },
@@ -57,7 +95,27 @@ const Item = ({place, date, time}) => {
   );
 };
 
+const scannedPlacesArray = [];
+
+const storePlaces = async (obj) => {
+  //AsyncStorage.removeItem('@storage_Key')
+  var value = await AsyncStorage.getItem('ScannedPlaces');
+  if (value === null) {
+    console.log(value);
+    value = AsyncStorage.setItem(
+      'ScannedPlaces',
+      JSON.stringify(scannedPlacesArray),
+    );
+  } else {
+    console.log(value);
+  }
+};
+
 const Location = ({navigation}) => {
+  useEffect(() => {
+    storePlaces(scannedPlacesArray);
+  });
+
   return (
     <View style={styles.mainMainConatiner}>
       <View style={styles.mainContainer}>
