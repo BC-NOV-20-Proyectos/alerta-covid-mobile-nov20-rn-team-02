@@ -107,7 +107,7 @@ const storePlaces = async (obj) => {
       JSON.stringify(scannedPlacesArray),
     );
   } else {
-    console.log(value);
+    //console.log(value);
   }
 };
 
