@@ -20,6 +20,8 @@ const onSuccess = async (text) => {
 
   sannedPlacesWhitoutString.push(placeObject);
 
+  console.log(sannedPlacesWhitoutString);
+
   AsyncStorage.setItem(
     'ScannedPlaces',
     JSON.stringify(sannedPlacesWhitoutString),

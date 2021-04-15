@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {TouchableOpacity, Text, View, FlatList} from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/locationsStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -9,6 +9,7 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+/*
 DATA = [
   {
     id: '1',
@@ -71,8 +72,11 @@ DATA = [
     time: MainFunctions.getFixedTime(),
   },
 ];
+*/
 
-const Item = ({place, date, time}) => {
+DATA = [];
+
+const Item = ({place, date}) => {
   return (
     <View style={styles.itemContainer}>
       <View>
@@ -87,9 +91,7 @@ const Item = ({place, date, time}) => {
 
       <View style={styles.textsContainer}>
         <Text style={styles.textsPlace}>{place}</Text>
-        <Text style={styles.textsDateTime}>
-          on {date} at {time}
-        </Text>
+        <Text style={styles.textsDateTime}>on {date}</Text>
       </View>
     </View>
   );
@@ -97,8 +99,7 @@ const Item = ({place, date, time}) => {
 
 const scannedPlacesArray = [];
 
-const storePlaces = async (obj) => {
-  //AsyncStorage.removeItem('@storage_Key')
+/*const storePlaces = async () => {
   var value = await AsyncStorage.getItem('ScannedPlaces');
   if (value === null) {
     console.log(value);
@@ -107,13 +108,27 @@ const storePlaces = async (obj) => {
       JSON.stringify(scannedPlacesArray),
     );
   } else {
-    //console.log(value);
+    console.log(value);
   }
-};
+};*/
 
 const Location = ({navigation}) => {
+  const [dataPlaces, setDataPlaces] = useState(null);
   useEffect(() => {
-    storePlaces(scannedPlacesArray);
+    async function getData() {
+      let value = await AsyncStorage.getItem('ScannedPlaces');
+      if (value === null) {
+        console.log(value);
+        value = AsyncStorage.setItem(
+          'ScannedPlaces',
+          JSON.stringify(scannedPlacesArray),
+        );
+      } else {
+        setDataPlaces(value);
+        console.log(dataPlaces);
+      }
+    }
+    getData();
   });
 
   return (
@@ -121,11 +136,9 @@ const Location = ({navigation}) => {
       <View style={styles.mainContainer}>
         <Text style={styles.mainTitle}>Where have you been</Text>
         <FlatList
-          data={DATA}
+          data={dataPlaces}
           renderItem={({item}) => {
-            return (
-              <Item place={item.place} date={item.date} time={item.time} />
-            );
+            return <Item place={item.namePlace} date={item.date} />;
           }}
           keyExtractor={(item) => item.id}
         />
