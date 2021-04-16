@@ -7,13 +7,43 @@ import DatePicker from 'react-native-date-picker';
 import ComboBox from 'react-native-combobox';
 import colors from '../utils/colors';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const TestDetails = ({navigation}) => {
   function navigate() {
-    navigation.navigate('RegisterSymptoms');
+    var test = {
+      id: 0,
+      type: '',
+      date: '',
+    };
+
+    AsyncStorage.getItem('ListCovidTest').then((res) => {
+      console.log(res);
+      var ListCovidTestArray = JSON.parse(res);
+      var size = ListCovidTestArray.length + 1;
+      test.id = size;
+      test.date = date;
+      if (selectedValue === 0) {
+        test.type = 'Viral';
+        ListCovidTestArray.push(test);
+        AsyncStorage.setItem(
+          'ListCovidTest',
+          JSON.stringify(ListCovidTestArray),
+        );
+        navigation.navigate('RegisterSymptoms');
+      } else if (selectedValue === 1) {
+        test.type = 'Body';
+        ListCovidTestArray.push(test);
+        AsyncStorage.setItem(
+          'ListCovidTest',
+          JSON.stringify(ListCovidTestArray),
+        );
+      } else {
+        alert('Please select if you test is Viral o Body');
+      }
+    });
   }
   const [date, setDate] = useState(new Date());
-  const [mode, setMode] = useState('data');
-  const [show, setShow] = useState(false);
 
   const [selectedValue, setSelectedValue] = useState('');
 
@@ -29,7 +59,7 @@ const TestDetails = ({navigation}) => {
           values={values}
           onValueSelect={setSelectedValue}
           textColor={colors.purpleDark}
-          defaultValue={'Viral'}
+          defaultValue={'Select type'}
           backgroundColor={colors.purpleLight}
         />
       </View>
@@ -40,7 +70,6 @@ const TestDetails = ({navigation}) => {
         textColor={colors.datePickTestColor}
         androidVariant={'nativeAndroid'}
       />
-
       <Button text={constans.done} onP={navigate} />
     </View>
   );

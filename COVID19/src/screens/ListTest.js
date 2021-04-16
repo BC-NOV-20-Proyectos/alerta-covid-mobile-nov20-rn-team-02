@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   Text,
   StyleSheet,
@@ -10,6 +10,7 @@ import {
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Fontisto';
 import styles from '../utils/styles/loginAuthStyles/locationsStyles';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 DATA = [
   {
@@ -61,12 +62,23 @@ const Item = ({date, time, type, navigation}) => {
 };
 
 const ListTest = ({navigation}) => {
+  const [testList, setTestList] = useState();
+  useEffect(() => {
+    AsyncStorage.getItem('ListCovidTest').then((res) => {
+      if (res === null) {
+        AsyncStorage.setItem('ListCovidTest', JSON.stringify([]));
+      } else {
+        //console.log(JSON.parse(res));
+        setTestList(JSON.parse(res));
+      }
+    });
+  }, []);
   return (
     <View style={styles.mainMainConatiner}>
       <View style={styles.mainContainer}>
         <Text style={styles.mainTitle}>Where have you been</Text>
         <FlatList
-          data={DATA}
+          data={testList}
           renderItem={({item}) => {
             return (
               <Item
@@ -77,7 +89,7 @@ const ListTest = ({navigation}) => {
               />
             );
           }}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
         />
       </View>
       <View>

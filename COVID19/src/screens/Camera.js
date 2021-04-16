@@ -11,7 +11,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const onSuccess = async (text) => {
   const arrayPlaces = text.data.split('|');
   var placeObject = {
-    id: null,
+    id: 0,
     idPlace: arrayPlaces[0],
     namePlace: arrayPlaces[1],
     date: MainFunctions.getFixedDate(),
@@ -24,7 +24,7 @@ const onSuccess = async (text) => {
 
   sannedPlacesWhitoutString.push(placeObject);
 
-  console.log(sannedPlacesWhitoutString);
+  //console.log(sannedPlacesWhitoutString);
 
   AsyncStorage.setItem(
     'ScannedPlaces',

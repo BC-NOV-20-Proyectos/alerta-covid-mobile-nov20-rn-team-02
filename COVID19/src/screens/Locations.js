@@ -3,32 +3,9 @@ import {TouchableOpacity, Text, View, FlatList} from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/locationsStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {MainFunctions} from '../utils/functions/mainFunctions';
-
 import colors from '../utils/colors';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-/*DATA = [
-  {
-    id: '1',
-    idPlace: '2',
-    namePlace: 'Cooffe Shoop',
-    date: '04/04/21',
-  },
-  {
-    id: '2',
-    idPlace: '2',
-    namePlace: 'UDC',
-    date: '14/04/21',
-  },
-  {
-    id: '3',
-    idPlace: '2',
-    namePlace: 'Walmart',
-    date: '15/04/21',
-  },
-];*/
 
 const Item = ({place, date}) => {
   return (
@@ -55,8 +32,12 @@ const Location = ({navigation}) => {
   const [dataPlaces, setDataPlaces] = useState();
   useEffect(() => {
     AsyncStorage.getItem('ScannedPlaces').then((res) => {
-      console.log(JSON.parse(res));
-      setDataPlaces(JSON.parse(res));
+      if (res === null) {
+        AsyncStorage.setItem('ScannedPlaces', JSON.stringify([]));
+      } else {
+        //console.log(JSON.parse(res));
+        setDataPlaces(JSON.parse(res));
+      }
     });
   }, []);
 
