@@ -9,72 +9,26 @@ import {Colors} from 'react-native/Libraries/NewAppScreen';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-/*
-DATA = [
+/*DATA = [
   {
     id: '1',
-    place: 'Soriana',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
+    idPlace: '2',
+    namePlace: 'Cooffe Shoop',
+    date: '04/04/21',
   },
   {
     id: '2',
-    place: 'MagmaLabs',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
+    idPlace: '2',
+    namePlace: 'UDC',
+    date: '14/04/21',
   },
   {
     id: '3',
-    place: 'Starbucks',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
+    idPlace: '2',
+    namePlace: 'Walmart',
+    date: '15/04/21',
   },
-  {
-    id: '4',
-    place: 'Las Brasas',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
-  },
-  {
-    id: '5',
-    place: 'Steren',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
-  },
-  {
-    id: '6',
-    place: 'UDC',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
-  },
-  {
-    id: '7',
-    place: 'TEC',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
-  },
-  {
-    id: '8',
-    place: 'Tacos panchito',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
-  },
-  {
-    id: '9',
-    place: 'Michidogos',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
-  },
-  {
-    id: '10',
-    place: 'Tacos el amigo',
-    date: MainFunctions.getFixedDate(),
-    time: MainFunctions.getFixedTime(),
-  },
-];
-*/
-
-DATA = [];
+];*/
 
 const Item = ({place, date}) => {
   return (
@@ -97,39 +51,14 @@ const Item = ({place, date}) => {
   );
 };
 
-const scannedPlacesArray = [];
-
-/*const storePlaces = async () => {
-  var value = await AsyncStorage.getItem('ScannedPlaces');
-  if (value === null) {
-    console.log(value);
-    value = AsyncStorage.setItem(
-      'ScannedPlaces',
-      JSON.stringify(scannedPlacesArray),
-    );
-  } else {
-    console.log(value);
-  }
-};*/
-
 const Location = ({navigation}) => {
-  const [dataPlaces, setDataPlaces] = useState(null);
+  const [dataPlaces, setDataPlaces] = useState();
   useEffect(() => {
-    async function getData() {
-      let value = await AsyncStorage.getItem('ScannedPlaces');
-      if (value === null) {
-        console.log(value);
-        value = AsyncStorage.setItem(
-          'ScannedPlaces',
-          JSON.stringify(scannedPlacesArray),
-        );
-      } else {
-        setDataPlaces(value);
-        console.log(dataPlaces);
-      }
-    }
-    getData();
-  });
+    AsyncStorage.getItem('ScannedPlaces').then((res) => {
+      console.log(JSON.parse(res));
+      setDataPlaces(JSON.parse(res));
+    });
+  }, []);
 
   return (
     <View style={styles.mainMainConatiner}>
@@ -140,7 +69,7 @@ const Location = ({navigation}) => {
           renderItem={({item}) => {
             return <Item place={item.namePlace} date={item.date} />;
           }}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.id.toString()}
         />
       </View>
       <View>

@@ -11,12 +11,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 const onSuccess = async (text) => {
   const arrayPlaces = text.data.split('|');
   var placeObject = {
-    id: arrayPlaces[0],
+    id: null,
+    idPlace: arrayPlaces[0],
     namePlace: arrayPlaces[1],
     date: MainFunctions.getFixedDate(),
   };
+
   var scannedPlacesJSON = await AsyncStorage.getItem('ScannedPlaces');
   var sannedPlacesWhitoutString = JSON.parse(scannedPlacesJSON);
+
+  placeObject.id = sannedPlacesWhitoutString.length + 1;
 
   sannedPlacesWhitoutString.push(placeObject);
 
