@@ -1,5 +1,12 @@
 const constans = {
   welcome: 'Welcome',
+  staySafe: 'Stay safe!',
+  covidGlobal: 'COVID is global!',
+  subtitleOne: 'Help us to prevent the spread.',
+  subtitleTwo: 'Protect yourself and others.',
+  subtitleThree:
+    'We are all in this together and we will get through this, together.',
+  tasksTitle: 'Your tasks',
   email: 'Email',
   pw: 'Password',
   login: 'Log in',

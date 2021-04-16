@@ -1,4 +1,4 @@
- export default colors = {
+export default colors = {
   white: '#F3F2FA',
   purpleLight: '#C2B6FC',
   purpleMedium: '#5A4DCC',
@@ -10,7 +10,8 @@
   orange: '#D06053',
   pinkDark: '#5B304C',
   pinkLight: '#DD6C7E',
-  isCheckedColor: "#5A4DCC",
-  isUncheckedColor: "#5A4DCC",
-  datePickTestColor: "#5A4DCC",
+  isCheckedColor: '#5A4DCC',
+  isUncheckedColor: '#5A4DCC',
+  datePickTestColor: '#5A4DCC',
+  test: '#9D88D3',
 };
