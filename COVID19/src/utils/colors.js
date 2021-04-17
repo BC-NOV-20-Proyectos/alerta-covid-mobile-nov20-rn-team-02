@@ -1,5 +1,5 @@
 export default colors = {
-  white: '#F3F2FA',
+  white: '#FFFFFF',
   purpleLight: '#C2B6FC',
   purpleMedium: '#5A4DCC',
   purpleDark: '#1E1A61',
@@ -13,5 +13,6 @@ export default colors = {
   isCheckedColor: '#5A4DCC',
   isUncheckedColor: '#5A4DCC',
   datePickTestColor: '#5A4DCC',
-  test: '#9D88D3',
+  purpleSuperDark: '#1b057c',
+  purpleSuperLight: '#938fe8',
 };

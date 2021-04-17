@@ -4,49 +4,52 @@ import colors from '../colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: colors.white,
+    justifyContent: 'center',
+    backgroundColor: colors.purpleDark,
+    paddingTop: 50,
+    paddingStart: 10,
   },
-  containerContent: {
-    paddingTop: 25,
-    width: '80%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  optionsUp: {
-    width: '100%',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  mainButton: {
-    backgroundColor: colors.purpleMedium,
-    width: 120,
-    height: 120,
+  item: {
+    height: '75%',
+    width: 290,
+    marginHorizontal: 8,
+    marginVertical: 8,
+    borderRadius: 30,
     padding: 20,
-    borderRadius: 10,
-    alignSelf: 'center',
-    marginTop: 35,
-
+    backgroundColor: colors.white,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  textQuestion: {
-    color: colors.purpleMedium,
-    fontSize: 36,
+  titleContainer: {
+    backgroundColor: colors.purpleSuperLight,
+    padding: 2,
+    borderTopRightRadius: 50,
+    borderBottomRightRadius: 50,
+    width: '50%',
+    marginBottom: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+  },
+  titleBold: {
+    fontSize: 40,
     fontWeight: 'bold',
+    color: colors.white,
+    marginRight: 10,
   },
-  txtButton: {
-    marginTop: 10,
+  titleLight: {
+    fontSize: 25,
+    color: colors.white,
+    marginBottom: 20,
+  },
+  subtitle: {
+    fontSize: 30,
+    fontWeight: 'bold',
     color: colors.purpleDark,
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
   },
-  btnLogo: {
-    width: 80,
-    height: 80,
-    borderWidth: 1,
-    borderColor: colors.purpleMedium,
+  image: {
+    width: '100%',
+    height: '60%',
   },
 });
 

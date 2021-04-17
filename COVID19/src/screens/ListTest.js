@@ -76,7 +76,7 @@ const ListTest = ({navigation}) => {
   return (
     <View style={styles.mainMainConatiner}>
       <View style={styles.mainContainer}>
-        <Text style={styles.mainTitle}>Where have you been</Text>
+        <Text style={styles.mainTitle}>List test</Text>
         <FlatList
           data={testList}
           renderItem={({item}) => {

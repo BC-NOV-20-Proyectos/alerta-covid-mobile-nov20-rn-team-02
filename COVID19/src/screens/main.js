@@ -1,41 +1,57 @@
 import React from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  TextInput,
-  TouchableOpacity,
-} from 'react-native';
+import {FlatList, View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from '../utils/styles/mainStyle';
-import ButtonMain from '../components/ButtonMain';
-import Input from '../components/Input';
 import constans from '../utils/constans';
+import Icon from 'react-native-vector-icons/Fontisto';
+import colors from '../utils/colors';
+
+const DATA = [
+  {
+    id: 1,
+    navigationName: 'ListTest',
+    title: constans.registerLab,
+    description: constans.registerLabDescription,
+    imageSource: require('../utils/images/laboratory.png'),
+  },
+  {
+    id: 2,
+    navigationName: 'Locations',
+    title: constans.locations,
+    description: constans.locationsDescription,
+    imageSource: require('../utils/images/locations.png'),
+  },
+];
+
+const Item = ({item, onPress}) => (
+  <TouchableOpacity onPress={onPress} style={styles.item}>
+    <Image style={styles.image} source={item.imageSource} />
+    <Text style={styles.subtitle}>{item.title}</Text>
+    <Text>{item.description}</Text>
+  </TouchableOpacity>
+);
 
 const Main = ({navigation}) => {
+  const renderItem = ({item}) => {
+    return (
+      <Item
+        item={item}
+        onPress={() => navigation.navigate(item.navigationName)}
+      />
+    );
+  };
   return (
     <View style={styles.container}>
-      <View style={styles.containerContent}>
-        <View style={styles.vQuestion}>
-          <Text style={styles.textQuestion}>{constans.mainQuest}</Text>
-        </View>
-        <View style={styles.optionsUp}>
-          <ButtonMain
-            captionButton="Register Labs"
-            img={require('../utils/images/Labs.png')}
-            onPush={() => {
-              navigation.navigate('ListTest');
-            }}
-          />
-          <ButtonMain
-            captionButton="See Locations"
-            img={require('../utils/images/locations.png')}
-            onPush={() => {
-              navigation.navigate('Locations');
-            }}
-          />
-        </View>
-        <View style={styles.optionsDown}></View>
+      <View style={styles.titleContainer}>
+        <Text style={styles.titleBold}>{constans.greeting}</Text>
+        <Icon name="laughing" size={40} color={colors.purpleDark} />
       </View>
+      <Text style={styles.titleLight}> {constans.tasksTitle} </Text>
+      <FlatList
+        horizontal={true}
+        data={DATA}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 };
