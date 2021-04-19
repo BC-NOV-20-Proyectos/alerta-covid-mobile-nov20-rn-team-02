@@ -2,7 +2,7 @@ import React from 'react';
 import {FlatList, View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from '../utils/styles/mainStyle';
 import constans from '../utils/constans';
-import Icon from 'react-native-vector-icons/Fontisto';
+import Icon from 'react-native-vector-icons/AntDesign';
 import colors from '../utils/colors';
 
 const DATA = [
@@ -18,7 +18,14 @@ const DATA = [
     navigationName: 'Locations',
     title: constans.locations,
     description: constans.locationsDescription,
-    imageSource: require('../utils/images/locations.png'),
+    imageSource: require('../utils/images/maps.png'),
+  },
+  {
+    id: 3,
+    navigationName: 'Prevention',
+    title: constans.prevention,
+    description: constans.preventionDescription,
+    imageSource: require('../utils/images/vaccine.png'),
   },
 ];
 
@@ -26,7 +33,7 @@ const Item = ({item, onPress}) => (
   <TouchableOpacity onPress={onPress} style={styles.item}>
     <Image style={styles.image} source={item.imageSource} />
     <Text style={styles.subtitle}>{item.title}</Text>
-    <Text>{item.description}</Text>
+    <Text style={styles.description}>{item.description}</Text>
   </TouchableOpacity>
 );
 
@@ -41,9 +48,13 @@ const Main = ({navigation}) => {
   };
   return (
     <View style={styles.container}>
+      <TouchableOpacity
+        onPress={() => alert('Logout')}
+        style={styles.logoutContainer}>
+        <Icon name="logout" size={45} color={colors.lightGray} />
+      </TouchableOpacity>
       <View style={styles.titleContainer}>
         <Text style={styles.titleBold}>{constans.greeting}</Text>
-        <Icon name="laughing" size={40} color={colors.purpleDark} />
       </View>
       <Text style={styles.titleLight}> {constans.tasksTitle} </Text>
       <FlatList

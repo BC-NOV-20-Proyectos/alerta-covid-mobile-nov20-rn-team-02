@@ -1,4 +1,5 @@
 const constans = {
+  welcome: 'Welcome',
   greeting: 'Hello!',
   staySafe: 'Stay safe!',
   covidGlobal: 'COVID is global!',
@@ -10,7 +11,9 @@ const constans = {
   locations: 'Locations',
   locationsDescription: 'All locations you have been',
   registerLab: 'Register labs',
-  registerLabDescription: 'Here you can register whatever lab ... ',
+  registerLabDescription: 'Here you can register all test you have made',
+  prevention: 'COVID-19',
+  preventionDescription: 'Coronavirus instruction and prevention',
   email: 'Email',
   pw: 'Password',
   login: 'Log in',
@@ -30,5 +33,11 @@ const constans = {
   qrTitle: 'QR Place Scan',
   typeUser: 'usuario',
   typePass: 'contrasenia',
+  wearMask: 'Wear a mask',
+  washHands: 'Wash your hands',
+  keepDistance: 'Keep your distance',
+  handSanitizer: 'Use hand sanitizer',
+  stayHome: 'Stay home',
+  wearGloves: 'Wear gloves',
 };
 export default constans;
