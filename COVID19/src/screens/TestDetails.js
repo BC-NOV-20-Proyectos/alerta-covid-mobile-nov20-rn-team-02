@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, TouchableOpacity, Touchable} from 'react-native';
 import constans from '../utils/constans';
 import Button from '../components/Button';
 import styles from '../utils/styles/testDetailsStyles/testDetailsStyles';
@@ -38,6 +38,7 @@ const TestDetails = ({navigation}) => {
           'ListCovidTest',
           JSON.stringify(ListCovidTestArray),
         );
+        navigation.navigate('RegisterSymptoms');
       } else {
         alert('Please select if you test is Viral o Body');
       }
