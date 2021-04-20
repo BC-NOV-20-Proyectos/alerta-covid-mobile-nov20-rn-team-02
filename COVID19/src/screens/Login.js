@@ -6,6 +6,8 @@ import Input from '../components/Input';
 import constans from '../utils/constans';
 import axios from 'axios';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const Login = ({navigation}) => {
   const [formData, setFormData] = useState(defaultValue());
   const onChange = (e, type) => {
@@ -18,14 +20,19 @@ const Login = ({navigation}) => {
     ) {
       const url =
         constans.urlAPI +
-        '?user[email]=' +
+        '?api_user[email]=' +
         formData.usuario +
-        '&user[password]=' +
+        '&api_user[password]=' +
         formData.contrasenia;
       axios
         .post(url)
         .then((res) => {
-          if (res.data.id !== null) {
+          if (res.data.token !== null) {
+            //console.log(res.data.token);
+            AsyncStorage.setItem(
+              res.data.token,
+              JSON.stringify(ListCovidTestArray),
+            );
             navigation.navigate('Main');
           } else {
             alert('Login failed!');

@@ -18,7 +18,7 @@ const constans = {
   pw: 'Password',
   login: 'Log in',
   forgotPW: 'Forgot password?',
-  urlAPI: 'https://hidden-cliffs-21927.herokuapp.com/user/sign_in',
+  urlAPI: 'https://hidden-cliffs-21927.herokuapp.com/api/user/sign_in',
   QuestionSymptoms: 'What symptoms do you have?',
   testType: 'Test Type',
   viralTest: 'Viral test',
