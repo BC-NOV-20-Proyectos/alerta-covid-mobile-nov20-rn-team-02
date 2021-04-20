@@ -15,4 +15,7 @@ export default colors = {
   datePickTestColor: '#5A4DCC',
   purpleSuperDark: '#1b057c',
   purpleSuperLight: '#938fe8',
+  green: '#9bf6ff',
+  greenLight: '#34a0a4',
+  greenDark: '#34a0a4',
 };

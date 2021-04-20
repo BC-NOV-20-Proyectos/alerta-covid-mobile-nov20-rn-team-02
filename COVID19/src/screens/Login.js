@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Image} from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/loginAuthStyles';
 import Button from '../components/Button';
 import Input from '../components/Input';
@@ -46,9 +46,15 @@ const Login = ({navigation}) => {
     }
   };
   return (
-    <View style={styles.container}>
-      <View style={styles.containerContent}>
-        <Text style={styles.txtTitle}>{constans.login}</Text>
+    <View style={styles.mainContainer}>
+      <View style={styles.topContainer}>
+        <Image
+          style={styles.img}
+          source={require('../utils/images/stay-home.png')}
+        />
+      </View>
+      <View style={styles.bottomContainer}>
+        <Text style={styles.txtTitle}>{constans.loginGreeting}</Text>
         <Input
           iconName="user"
           style={styles.input}
@@ -62,8 +68,8 @@ const Login = ({navigation}) => {
           onChangeInput={(e) => onChange(e, constans.typePass)}
         />
         <Button text={constans.login} onP={putLoginOk} />
+        <Text style={styles.textForgotPW}> {constans.forgotPW} </Text>
       </View>
-      <Text style={styles.textForgotPW}> {constans.forgotPW} </Text>
     </View>
   );
 };
