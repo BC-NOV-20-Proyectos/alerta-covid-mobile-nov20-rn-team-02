@@ -35,14 +35,15 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     width: '100%',
-    borderRadius: 10,
-    borderWidth: 1,
+    borderWidth: 2,
     marginTop: 20,
     borderBottomColor: colors.green,
     borderTopColor: colors.purpleDark,
     borderRightColor: colors.purpleDark,
     borderLeftColor: colors.purpleDark,
-    backgroundColor: 'white',
+  },
+  inputInput: {
+    color: colors.white,
   },
   containerButton: {
     backgroundColor: colors.greenDark,

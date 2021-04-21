@@ -23,9 +23,12 @@ const styles = StyleSheet.create({
   picker: {
     alignSelf: 'flex-start',
     marginLeft: 50,
+    width: 370,
+    height: 300,
   },
   conatinerCombo: {
     width: '75%',
+    //height: 170,
   },
 });
 

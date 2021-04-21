@@ -91,14 +91,12 @@ const ListTest = ({navigation}) => {
           }}
           keyExtractor={(item) => item.id.toString()}
         />
-      </View>
-      <View>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('TestDetails');
           }}
           style={styles.buttonContainer}>
-          <Icon size={60} color={colors.purpleMedium} name="pluscircleo" />
+          <Icon size={60} color={colors.greenLight} name="pluscircleo" />
         </TouchableOpacity>
       </View>
     </View>

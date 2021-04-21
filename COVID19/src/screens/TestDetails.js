@@ -67,12 +67,14 @@ const TestDetails = ({navigation}) => {
           backgroundColor={colors.purpleLight}
         />
       </View>
+      <Text style={styles.subTitle}>{'Select Date'}</Text>
       <DatePicker
-        style={styles.customizableCalendar}
+        style={styles.picker}
         androidVariant="nativeAndroid"
         date={date}
         mode={'date'}
         onDateChange={setDate}
+        customStyles={styles.datePickerStyles}
       />
       <Button text={constans.done} onP={navigate} />
     </View>

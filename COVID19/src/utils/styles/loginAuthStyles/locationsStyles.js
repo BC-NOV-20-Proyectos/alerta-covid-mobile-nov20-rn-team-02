@@ -4,30 +4,34 @@ import colors from '../../colors';
 
 const styles = StyleSheet.create({
   mainMainConatiner: {
-      flex:1
+    flex: 1,
+    backgroundColor: colors.purpleDark,
   },
   mainContainer: {
     flex: 1,
     paddingTop: 20,
-    // :(
     paddingHorizontal: 10,
     justifyContent: 'center',
   },
   mainTitle: {
     textAlign: 'center',
     fontSize: 30,
-    color: colors.purpleMedium,
+    color: colors.greenLight,
     fontWeight: 'bold',
     paddingBottom: 20,
   },
   itemContainer: {
+    alignSelf: 'center',
+    width: '90%',
     padding: 10,
     margin: 10,
-    backgroundColor: colors.purpleMedium,
+    marginTop: 20,
     flexDirection: 'row',
+    borderRadius: 30,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    borderRadius: 20,
+    borderWidth: 2,
+    backgroundColor: colors.greenLight,
   },
   buttonContainer: {
     margin: 10,

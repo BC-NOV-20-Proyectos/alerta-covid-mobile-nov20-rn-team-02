@@ -13,6 +13,7 @@ const Input = ({placeholderTxt, iconName, onChangeInput}) => {
         style={{marginStart: 15, alignSelf: 'center'}}
       />
       <TextInput
+        style={styles.inputInput}
         placeholder={placeholderTxt}
         secureTextEntry={placeholderTxt === 'Password' && true}
         placeholderTextColor={colors.white}
