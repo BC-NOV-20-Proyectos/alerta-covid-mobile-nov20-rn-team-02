@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
     borderTopColor: colors.purpleDark,
     borderRightColor: colors.purpleDark,
     borderLeftColor: colors.purpleDark,
+    backgroundColor: 'white',
   },
   containerButton: {
     backgroundColor: colors.greenDark,

@@ -6,8 +6,10 @@ import styles from '../utils/styles/testDetailsStyles/testDetailsStyles';
 import DatePicker from 'react-native-date-picker';
 import ComboBox from 'react-native-combobox';
 import colors from '../utils/colors';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import {MainFunctions} from '../utils/functions/mainFunctions';
+
+var currentDate = '';
 
 const TestDetails = ({navigation}) => {
   function navigate() {
@@ -16,13 +18,12 @@ const TestDetails = ({navigation}) => {
       type: '',
       date: '',
     };
-
     AsyncStorage.getItem('ListCovidTest').then((res) => {
       console.log(res);
       var ListCovidTestArray = JSON.parse(res);
       var size = ListCovidTestArray.length + 1;
       test.id = size;
-      test.date = date;
+      test.date = MainFunctions.fixedDate(date);
       if (selectedValue === 0) {
         test.type = 'Viral';
         ListCovidTestArray.push(test);
@@ -44,11 +45,13 @@ const TestDetails = ({navigation}) => {
       }
     });
   }
-  const [date, setDate] = useState(new Date());
-
   const [selectedValue, setSelectedValue] = useState('');
 
+  const [date, setDate] = useState(new Date());
+  const [show, setShow] = useState(false);
+
   const values = ['Viral', 'Body'];
+
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>{constans.testDetails}</Text>
@@ -64,12 +67,12 @@ const TestDetails = ({navigation}) => {
           backgroundColor={colors.purpleLight}
         />
       </View>
-      <Text style={styles.subTitle}>{constans.testDate}</Text>
       <DatePicker
-        style={styles.picker}
+        style={styles.customizableCalendar}
+        androidVariant="nativeAndroid"
         date={date}
-        textColor={colors.datePickTestColor}
-        androidVariant={'nativeAndroid'}
+        mode={'date'}
+        onDateChange={setDate}
       />
       <Button text={constans.done} onP={navigate} />
     </View>

@@ -13,17 +13,28 @@ import constans from '../utils/constans';
 
 import styles from '../utils/styles/symptomsStyles/symptomsStyles';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+
 const RegisterSymptoms = ({navigation}) => {
-  /*
-  {
-    "symptomatic": true,
+  var obj = {
+    "symptomatic": false,
     "covid_positive": null,
-    "places": [1,2]
+    "places": []
   }
-  */
+  AsyncStorage.setItem(
+    'incident',
+    JSON.stringify(obj),
+  );
+  
+  
   function sendIncident() {
+    
     Alert.alert('Inicendt sent Succesfully', 'Your Inicend was send', [
-      {text: 'OK', onPress: () => navigation.navigate('Main')},
+      {text: 'OK', onPress: () =>{
+        navigation.navigate('Main')
+        console.log('sdfsf')
+      }},
     ]);
   }
 
