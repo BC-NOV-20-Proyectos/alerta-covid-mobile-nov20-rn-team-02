@@ -15,43 +15,42 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {MainFunctions} from '../utils/functions/mainFunctions';
 
-function getFilterPlaces(date) {
-  var incidentObj = {
-    symptomatic: false,
-    covid_positive: null,
-    places: [],
+const RegisterSymptoms = ({navigation}) => {
+  const getFilterPlaces = (dateConvert) => {
+    var idArray = [];
+    var tenDayAgo = new Date(dateConvert);
+    tenDayAgo.setDate(tenDayAgo.getDate() - 10);
+
+    AsyncStorage.getItem('ScannedPlaces').then((res) => {
+      const placeToFilter = JSON.parse(res);
+      var invertedFilter = placeToFilter.reverse();
+      for (var i = 0; i < invertedFilter.length; i++) {
+        var placeDate = new Date(invertedFilter[i].date);
+        if (placeDate >= tenDayAgo) {
+          idArray.push(invertedFilter[i].idPlace);
+        }
+      }
+      return idArray;
+    });
   };
 
-  var tenDayAgo = new Date(date);
-  tenDayAgo.setDate(tenDayAgo.getDate() - 10);
-
-  AsyncStorage.getItem('ScannedPlaces').then((res) => {
-    const placeToFilter = JSON.parse(res);
-    for (var i = placeToFilter.length - 1; i > 0; i--) {
-      var placeDate = new Date(placeToFilter[i].date);
-      if (placeDate > tenDayAgo) {
-        //console.log(incidentObj)
-        incidentObj.places.push(placeToFilter[i].id);
-        console.log(incidentObj);
-      }
-    }
-  });
-}
-
-const RegisterSymptoms = ({navigation}) => {
-
-
-  getFilterPlaces(MainFunctions.getFixedDate());
-
-  //AsyncStorage.setItem('incident', JSON.stringify(incidentObj));
-
   function sendIncident() {
+    var incidentObj = {
+      symptomatic: false,
+      covid_positive: null,
+      places: getFilterPlaces(MainFunctions.getFixedDate()),
+    };
+
+    //incidentObj.places = getFilterPlaces(MainFunctions.getFixedDate());
+
+    console.log(incidentObj);
+
     Alert.alert('Inicendt sent Succesfully', 'Your Inicend was send', [
       {
         text: 'OK',
         onPress: () => {
           navigation.navigate('Main');
-          console.log('sdfsf');
+          //console.log('sdfsf');
         },
       },
     ]);
