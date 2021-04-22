@@ -4,10 +4,14 @@ const getFixedDate = () => {
   let month = date.getMonth() + 1;
   let year = date.getFullYear();
   let fullDate = '';
-  if (month < 10) {
-    fullDate = `${day}/0${month}/${year}`;
+  if (month < 10 && day < 10) {
+    fullDate = `0${month}/0${day}/${year}`;
+  } else if (month < 10 && day >= 10) {
+    fullDate = `0${month}/${day}/${year}`;
+  } else if (month >= 10 && day < 10) {
+    fullDate = `${month}/0${day}/${year}`;
   } else {
-    fullDate = `${day}/0${month}/${year}`;
+    fullDate = `${month}/${day}/${year}`;
   }
   return fullDate;
 };
@@ -25,10 +29,14 @@ const fixedDate = (dateP) => {
   let month = date.getMonth() + 1;
   let year = date.getFullYear();
   let fullDate = '';
-  if (month < 10) {
-    fullDate = `${day}/0${month}/${year}`;
+  if (month < 10 && day < 10) {
+    fullDate = `0${month}/0${day}/${year}`;
+  } else if (month < 10 && day >= 10) {
+    fullDate = `0${month}/${day}/${year}`;
+  } else if (month >= 10 && day < 10) {
+    fullDate = `${month}/0${day}/${year}`;
   } else {
-    fullDate = `${day}/0${month}/${year}`;
+    fullDate = `${month}/${day}/${year}`;
   }
   return fullDate;
 };

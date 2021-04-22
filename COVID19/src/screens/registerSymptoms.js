@@ -10,31 +10,50 @@ import {
 import CustomCheck from '../components/CustomCheck';
 import Button from '../components/Button';
 import constans from '../utils/constans';
-
 import styles from '../utils/styles/symptomsStyles/symptomsStyles';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+import {MainFunctions} from '../utils/functions/mainFunctions';
+
+function getFilterPlaces(date) {
+  var incidentObj = {
+    symptomatic: false,
+    covid_positive: null,
+    places: [],
+  };
+
+  var tenDayAgo = new Date(date);
+  tenDayAgo.setDate(tenDayAgo.getDate() - 10);
+
+  AsyncStorage.getItem('ScannedPlaces').then((res) => {
+    const placeToFilter = JSON.parse(res);
+    for (var i = placeToFilter.length - 1; i > 0; i--) {
+      var placeDate = new Date(placeToFilter[i].date);
+      if (placeDate > tenDayAgo) {
+        //console.log(incidentObj)
+        incidentObj.places.push(placeToFilter[i].id);
+        console.log(incidentObj);
+      }
+    }
+  });
+}
 
 const RegisterSymptoms = ({navigation}) => {
-  var obj = {
-    "symptomatic": false,
-    "covid_positive": null,
-    "places": []
-  }
-  AsyncStorage.setItem(
-    'incident',
-    JSON.stringify(obj),
-  );
-  
-  
+
+
+  getFilterPlaces(MainFunctions.getFixedDate());
+
+  //AsyncStorage.setItem('incident', JSON.stringify(incidentObj));
+
   function sendIncident() {
-    
     Alert.alert('Inicendt sent Succesfully', 'Your Inicend was send', [
-      {text: 'OK', onPress: () =>{
-        navigation.navigate('Main')
-        console.log('sdfsf')
-      }},
+      {
+        text: 'OK',
+        onPress: () => {
+          navigation.navigate('Main');
+          console.log('sdfsf');
+        },
+      },
     ]);
   }
 
