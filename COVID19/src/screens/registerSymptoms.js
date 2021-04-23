@@ -15,49 +15,60 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import {MainFunctions} from '../utils/functions/mainFunctions';
 
-const RegisterSymptoms = ({navigation}) => {
-  const getFilterPlaces = (dateConvert) => {
-    var idArray = [];
-    var tenDayAgo = new Date(dateConvert);
-    tenDayAgo.setDate(tenDayAgo.getDate() - 10);
+import axios from 'axios';
 
+var count = 0;
+
+const RegisterSymptoms = ({navigation}) => {
+  function incidentAPI(object) {
+    AsyncStorage.getItem('userToken').then((res) => {
+      console.log(res);
+    });
+  }
+  function sendIncident() {
     AsyncStorage.getItem('ScannedPlaces').then((res) => {
+      var idArray = [];
+      var incidentObj = {
+        symptomatic: false,
+        covid_positive: null,
+        places: [],
+      };
+      var tenDayAgo = new Date(MainFunctions.getFixedDate());
+      tenDayAgo.setDate(tenDayAgo.getDate() - 10);
       const placeToFilter = JSON.parse(res);
-      var invertedFilter = placeToFilter.reverse();
+      const invertedFilter = placeToFilter.reverse();
       for (var i = 0; i < invertedFilter.length; i++) {
         var placeDate = new Date(invertedFilter[i].date);
         if (placeDate >= tenDayAgo) {
           idArray.push(invertedFilter[i].idPlace);
         }
       }
-      return idArray;
+      incidentObj.places = idArray;
+      if (count > 0) {
+        incidentObj.symptomatic = true;
+      } else {
+        incidentObj.symptomatic = false;
+      }
+      incidentAPI(incidentObj);
     });
-  };
+  }
 
-  function sendIncident() {
-    var incidentObj = {
-      symptomatic: false,
-      covid_positive: null,
-      places: getFilterPlaces(MainFunctions.getFixedDate()),
-    };
+  function counterSymptomsPlus() {
+    count = count + 1;
+  }
 
-    //incidentObj.places = getFilterPlaces(MainFunctions.getFixedDate());
-
-    console.log(incidentObj);
-
-    Alert.alert('Inicendt sent Succesfully', 'Your Inicend was send', [
-      {
-        text: 'OK',
-        onPress: () => {
-          navigation.navigate('Main');
-          //console.log('sdfsf');
-        },
-      },
-    ]);
+  function counterSymptomsLess() {
+    count = count - 1;
   }
 
   const renderItem = ({item}) => {
-    return <CustomCheck name={item.name} />;
+    return (
+      <CustomCheck
+        name={item.name}
+        callbackCounterPlus={counterSymptomsPlus}
+        callbackCounterLess={counterSymptomsLess}
+      />
+    );
   };
 
   return (

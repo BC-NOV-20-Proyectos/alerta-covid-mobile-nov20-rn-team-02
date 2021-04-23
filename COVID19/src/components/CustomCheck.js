@@ -4,7 +4,7 @@ import styles from '../utils/styles/symptomsStyles/symptomsStyles';
 import colors from '../utils/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const CustomCheck = ({name}) => {
+const CustomCheck = ({name, callbackCounterPlus, callbackCounterLess}) => {
   const algo = AsyncStorage.getItem('incident').then((res) => {
     return res;
   });
@@ -19,10 +19,11 @@ const CustomCheck = ({name}) => {
       onPress={() => {
         isCheck(!check);
         if (check === false) {
-
-          console.log(name);
+          callbackCounterPlus();
+          //console.log(name);
         } else {
-          console.log('No checkeado');
+          callbackCounterLess();
+          //console.log('No checkeado');
         }
       }}
     />
