@@ -19,7 +19,6 @@ const TestDetails = ({navigation}) => {
       date: '',
     };
     AsyncStorage.getItem('ListCovidTest').then((res) => {
-      //console.log(res);
       var ListCovidTestArray = JSON.parse(res);
       var size = ListCovidTestArray.length + 1;
       test.id = size;

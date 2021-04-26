@@ -20,28 +20,18 @@ const Login = ({navigation}) => {
     ) {
       const url =
         constans.urlAPI +
-        //'?api_user[email]=gerzainnb@gmail.com' +
         '?api_user[email]=' +
         formData.usuario +
         '&api_user[password]=' +
-        //'&api_user[password]=1g7u51a' +
         formData.contrasenia;
-      axios
-        .post(url)
-        .then((res) => {
-          if (res.data.token !== null) {
-            //console.log(res.data.token);
-            AsyncStorage.setItem('userToken', res.data.token);
-            navigation.navigate('Main');
-          } else {
-            alert('Login failed!');
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      console.log('Error con el formulario');
+      axios.post(url).then((res) => {
+        if (res.data.token !== null) {
+          AsyncStorage.setItem('userToken', res.data.token);
+          navigation.navigate('Main');
+        } else {
+          alert('Login failed!');
+        }
+      });
     }
   };
   return (

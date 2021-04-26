@@ -12,9 +12,7 @@ import Button from '../components/Button';
 import constans from '../utils/constans';
 import styles from '../utils/styles/symptomsStyles/symptomsStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
 import {MainFunctions} from '../utils/functions/mainFunctions';
-
 import axios from 'axios';
 
 var count = 0;
@@ -22,9 +20,39 @@ var count = 0;
 const RegisterSymptoms = ({navigation}) => {
   function incidentAPI(object) {
     AsyncStorage.getItem('userToken').then((res) => {
-      console.log(res);
+      axios({
+        headers: {
+          Authorization: 'Bearer ' + res,
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+        method: 'post',
+        url: 'https://hidden-cliffs-21927.herokuapp.com/api/incident',
+        data: object,
+      }).then((response) => {
+        if (response.data.error === false) {
+          Alert.alert('Incident Sents', 'Alert Incident sent succesfully.', [
+            {
+              text: 'Cancel',
+              onPress: () => navigation.navigate('Main'),
+              style: 'cancel',
+            },
+            {text: 'OK', onPress: () => navigation.navigate('Main')},
+          ]);
+        } else {
+          Alert.alert('Incident Error', 'This alert was not sent', [
+            {
+              text: 'Cancel',
+              onPress: () => navigation.navigate('Main'),
+              style: 'cancel',
+            },
+            {text: 'OK', onPress: () => navigation.navigate('Main')},
+          ]);
+        }
+      });
     });
   }
+
   function sendIncident() {
     AsyncStorage.getItem('ScannedPlaces').then((res) => {
       var idArray = [];

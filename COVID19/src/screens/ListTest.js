@@ -68,7 +68,6 @@ const ListTest = ({navigation}) => {
       if (res === null) {
         AsyncStorage.setItem('ListCovidTest', JSON.stringify([]));
       } else {
-        //console.log(JSON.parse(res));
         setTestList(JSON.parse(res));
       }
     });
