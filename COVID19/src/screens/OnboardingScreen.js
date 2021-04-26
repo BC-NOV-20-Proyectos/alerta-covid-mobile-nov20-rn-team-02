@@ -6,8 +6,8 @@ import colors from '../utils/colors';
 const OnboardingScreen = ({navigation}) => {
   return (
     <Onboarding
-      onSkip={() => navigation.navigate('Login')}
-      onDone={() => navigation.navigate('Login')}
+      onSkip={() => navigation.navigate('Main')}
+      onDone={() => navigation.navigate('Main')}
       pages={[
         {
           backgroundColor: colors.purpleLight,
@@ -25,7 +25,8 @@ const OnboardingScreen = ({navigation}) => {
           backgroundColor: colors.purpleDark,
           image: <Image source={require('../utils/images/onboarding3.png')} />,
           title: 'COVID is global!',
-          subtitle: 'We are all in this together and we will get through this, together.',
+          subtitle:
+            'We are all in this together and we will get through this, together.',
         },
       ]}
     />
