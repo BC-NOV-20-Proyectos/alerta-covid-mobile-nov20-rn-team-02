@@ -4,49 +4,58 @@ import colors from '../colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-    backgroundColor: colors.white,
+    justifyContent: 'center',
+    backgroundColor: colors.purpleDark,
+    paddingTop: 20,
+    paddingStart: 10,
   },
-  containerContent: {
-    paddingTop: 25,
-    width: '80%',
-    height: '100%',
-    alignItems: 'center',
-    justifyContent: 'flex-start',
-  },
-  optionsUp: {
+  logoutContainer: {
     width: '100%',
-    flexDirection: 'column',
-    alignItems: 'center',
+    marginBottom: 10,
+    paddingEnd: 15,
+    alignItems: 'flex-end',
+    alignSelf: 'flex-end',
   },
-  mainButton: {
-    backgroundColor: colors.purpleMedium,
-    width: 120,
-    height: 120,
+  titleContainer: {
+    width: '100%',
+    marginBottom: 20,
+    alignItems: 'flex-start',
+  },
+  titleBold: {
+    fontSize: 56,
+    fontWeight: 'bold',
+    color: colors.white,
+  },
+  titleLight: {
+    fontSize: 30,
+    color: colors.white,
+    marginBottom: 30,
+  },
+  item: {
+    height: '90%',
+    width: 300,
+    marginHorizontal: 8,
+    marginVertical: 8,
+    borderRadius: 20,
     padding: 20,
-    borderRadius: 10,
-    alignSelf: 'center',
-    marginTop: 35,
-
+    backgroundColor: colors.lightGray,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  textQuestion: {
-    color: colors.purpleMedium,
-    fontSize: 36,
+  subtitle: {
+    fontSize: 35,
     fontWeight: 'bold',
-  },
-  txtButton: {
-    marginTop: 10,
     color: colors.purpleDark,
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    marginTop: 10,
   },
-  btnLogo: {
-    width: 80,
-    height: 80,
-    borderWidth: 1,
-    borderColor: colors.purpleMedium,
+  image: {
+    width: '100%',
+    height: '60%',
+  },
+  description: {
+    fontSize: 16,
+    textAlign: 'center',
+    marginTop: 10,
   },
 });
 

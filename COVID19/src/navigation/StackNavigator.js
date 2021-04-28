@@ -11,6 +11,7 @@ import TestDetails from '../screens/TestDetails';
 import Camera from '../screens/Camera';
 import ListTest from '../screens/ListTest';
 import TestResultsDetails from '../screens/TestResultDetails';
+import Prevention from '../screens/Prevention';
 
 const AppStack = createStackNavigator();
 
@@ -31,7 +32,11 @@ const StackNavigator = () => {
         <AppStack.Screen name="Camera" component={Camera} />
         <AppStack.Screen name="Locations" component={Locations} />
         <AppStack.Screen name="ListTest" component={ListTest} />
-        <AppStack.Screen name="TestResultsDetails" component={TestResultsDetails} />
+        <AppStack.Screen
+          name="TestResultsDetails"
+          component={TestResultsDetails}
+        />
+        <AppStack.Screen name="Prevention" component={Prevention} />
       </AppStack.Navigator>
     </NavigationContainer>
   );

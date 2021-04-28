@@ -12,14 +12,12 @@ const TestType = ({navigation}) => {
       <Text style={styles.txtTitle}> {constans.testType} </Text>
       <ButtonMain
         captionButton={constans.viralTest}
-        img={require('../utils/images/covidsitos.png')}
         onPush={() => {
           navigation.navigate('TestDetails');
         }}
       />
       <ButtonMain
         captionButton={constans.bodyTest}
-        img={require('../utils/images/prueba-de-sangre.png')}
         onPush={() => {
           navigation.navigate('TestDetails');
         }}

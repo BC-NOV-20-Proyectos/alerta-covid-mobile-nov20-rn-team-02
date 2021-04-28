@@ -4,11 +4,32 @@ import QRCodeScanner from 'react-native-qrcode-scanner';
 import styles from '../utils/styles/cameraStyles/cameraStyles';
 import constans from '../utils/constans';
 import Icon from 'react-native-vector-icons/Ionicons';
+import {MainFunctions} from '../utils/functions/mainFunctions';
 
-const onSuccess = (text) => {
-  alert(
-    `The place is ${text.data} and the coordenates are ${text.bounds.origin[0].x}`,
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
+const onSuccess = async (text) => {
+  const arrayPlaces = text.data.split('|');
+  var placeObject = {
+    id: 0,
+    idPlace: arrayPlaces[0],
+    namePlace: arrayPlaces[1],
+    date: MainFunctions.getFixedDate(),
+  };
+
+  var scannedPlacesJSON = await AsyncStorage.getItem('ScannedPlaces');
+  var sannedPlacesWhitoutString = JSON.parse(scannedPlacesJSON);
+
+  placeObject.id = sannedPlacesWhitoutString.length + 1;
+
+  sannedPlacesWhitoutString.push(placeObject);
+
+  AsyncStorage.setItem(
+    'ScannedPlaces',
+    JSON.stringify(sannedPlacesWhitoutString),
   );
+
+  alert(`Place correctly scanned\nYou are in ${placeObject.namePlace}`);
 };
 
 const Camera = () => {

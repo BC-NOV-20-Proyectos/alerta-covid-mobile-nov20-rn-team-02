@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, Image} from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/loginAuthStyles';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import constans from '../utils/constans';
 import axios from 'axios';
+
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation}) => {
   const [formData, setFormData] = useState(defaultValue());
@@ -18,30 +20,30 @@ const Login = ({navigation}) => {
     ) {
       const url =
         constans.urlAPI +
-        '?user[email]=' +
+        '?api_user[email]=' +
         formData.usuario +
-        '&user[password]=' +
+        '&api_user[password]=' +
         formData.contrasenia;
-      axios
-        .post(url)
-        .then((res) => {
-          if (res.data.id !== null) {
-            navigation.navigate('Main');
-          } else {
-            alert('Login failed!');
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } else {
-      console.log('Error con el formulario');
+      axios.post(url).then((res) => {
+        if (res.data.token !== null) {
+          AsyncStorage.setItem('userToken', res.data.token);
+          navigation.navigate('Main');
+        } else {
+          alert('Login failed!');
+        }
+      });
     }
   };
   return (
-    <View style={styles.container}>
-      <View style={styles.containerContent}>
-        <Text style={styles.txtTitle}>{constans.login}</Text>
+    <View style={styles.mainContainer}>
+      <View style={styles.topContainer}>
+        <Image
+          style={styles.img}
+          source={require('../utils/images/stay-home.png')}
+        />
+      </View>
+      <View style={styles.bottomContainer}>
+        <Text style={styles.txtTitle}>{constans.loginGreeting}</Text>
         <Input
           iconName="user"
           style={styles.input}
@@ -55,8 +57,8 @@ const Login = ({navigation}) => {
           onChangeInput={(e) => onChange(e, constans.typePass)}
         />
         <Button text={constans.login} onP={putLoginOk} />
+        <Text style={styles.textForgotPW}> {constans.forgotPW} </Text>
       </View>
-      <Text style={styles.textForgotPW}> {constans.forgotPW} </Text>
     </View>
   );
 };
