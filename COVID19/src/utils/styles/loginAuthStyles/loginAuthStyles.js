@@ -2,6 +2,10 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import colors from '../../colors';
 const styles = StyleSheet.create({
+  iconStyle: {
+    marginStart: 15,
+    alignSelf: 'center',
+  },
   mainContainer: {
     flex: 1,
     backgroundColor: colors.purpleDark,

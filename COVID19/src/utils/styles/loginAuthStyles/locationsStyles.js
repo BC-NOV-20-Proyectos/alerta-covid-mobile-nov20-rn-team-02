@@ -3,6 +3,10 @@ import {StyleSheet} from 'react-native';
 import colors from '../../colors';
 
 const styles = StyleSheet.create({
+  icon: {
+    marginStart: 20, 
+    marginRight: 10,
+  },
   mainMainConatiner: {
     flex: 1,
     backgroundColor: colors.purpleDark,

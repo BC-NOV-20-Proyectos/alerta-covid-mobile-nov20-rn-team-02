@@ -10,7 +10,7 @@ const Input = ({placeholderTxt, iconName, onChangeInput}) => {
         name={iconName}
         color={colors.white}
         size={25}
-        style={{marginStart: 15, alignSelf: 'center'}}
+        style={styles.iconStyle}
       />
       <TextInput
         style={styles.inputInput}

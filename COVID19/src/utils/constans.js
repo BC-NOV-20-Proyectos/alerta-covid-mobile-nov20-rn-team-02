@@ -40,5 +40,6 @@ const constans = {
   handSanitizer: 'Use hand sanitizer',
   stayHome: 'Stay home',
   wearGloves: 'Wear gloves',
+  titleLocation: 'Locations',
 };
 export default constans;

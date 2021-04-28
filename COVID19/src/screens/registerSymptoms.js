@@ -21,11 +21,7 @@ const RegisterSymptoms = ({navigation}) => {
   function incidentAPI(object) {
     AsyncStorage.getItem('userToken').then((res) => {
       axios({
-        headers: {
-          Authorization: 'Bearer ' + res,
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
+        headers: {Authorization: 'Bearer ' + res, Accept: 'application/json', 'Content-Type': 'application/json',},
         method: 'post',
         url: 'https://hidden-cliffs-21927.herokuapp.com/api/incident',
         data: object,

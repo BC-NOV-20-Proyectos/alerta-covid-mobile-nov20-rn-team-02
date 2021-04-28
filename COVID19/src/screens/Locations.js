@@ -6,6 +6,7 @@ import {MainFunctions} from '../utils/functions/mainFunctions';
 import colors from '../utils/colors';
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import constans from '../utils/constans';
 
 const Item = ({place, date}) => {
   return (
@@ -15,7 +16,6 @@ const Item = ({place, date}) => {
           size={40}
           color="white"
           style={styles.icon}
-          style={{marginStart: 20, marginRight: 10}}
           name="calendar"
         />
       </View>
@@ -35,7 +35,6 @@ const Location = ({navigation}) => {
       if (res === null) {
         AsyncStorage.setItem('ScannedPlaces', JSON.stringify([]));
       } else {
-        //console.log(JSON.parse(res));
         setDataPlaces(JSON.parse(res));
       }
     });
@@ -44,7 +43,7 @@ const Location = ({navigation}) => {
   return (
     <View style={styles.mainMainConatiner}>
       <View style={styles.mainContainer}>
-        <Text style={styles.mainTitle}>Locations</Text>
+        <Text style={styles.mainTitle}>{constans.titleLocation}</Text>
         <FlatList
           data={dataPlaces}
           renderItem={({item}) => {
