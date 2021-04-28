@@ -30,7 +30,7 @@ const TestDetails = ({navigation}) => {
           'ListCovidTest',
           JSON.stringify(ListCovidTestArray),
         );
-        navigation.navigate('RegisterSymptoms');
+        navigation.navigate('RegisterSymptoms', {covidResult: null});
       } else if (selectedValue === 1) {
         test.type = 'Body';
         ListCovidTestArray.push(test);
@@ -38,7 +38,7 @@ const TestDetails = ({navigation}) => {
           'ListCovidTest',
           JSON.stringify(ListCovidTestArray),
         );
-        navigation.navigate('RegisterSymptoms');
+        navigation.navigate('RegisterSymptoms',{covidResult: null});
       } else {
         alert('Please select if you test is Viral o Body');
       }

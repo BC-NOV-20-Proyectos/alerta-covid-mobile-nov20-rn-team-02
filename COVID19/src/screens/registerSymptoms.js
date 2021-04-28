@@ -1,12 +1,5 @@
 import React, {useState} from 'react';
-import {
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-  FlatList,
-  Alert,
-} from 'react-native';
+import {Text, View, FlatList, Alert} from 'react-native';
 import CustomCheck from '../components/CustomCheck';
 import Button from '../components/Button';
 import constans from '../utils/constans';
@@ -17,15 +10,25 @@ import axios from 'axios';
 
 var count = 0;
 
-const RegisterSymptoms = ({navigation}) => {
+const RegisterSymptoms = ({navigation, route}) => {
+  const {covidResult} = route.params;
+
   function incidentAPI(object) {
+    //object.covid_positive = console.log(object);
     AsyncStorage.getItem('userToken').then((res) => {
+      console.log(res);
       axios({
-        headers: {Authorization: 'Bearer ' + res, Accept: 'application/json', 'Content-Type': 'application/json',},
+        headers: {
+          Authorization: 'Bearer ' + res,
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
         method: 'post',
         url: 'https://hidden-cliffs-21927.herokuapp.com/api/incident',
         data: object,
       }).then((response) => {
+        console.log('');
+        console.log(response.data.error);
         if (response.data.error === false) {
           Alert.alert('Incident Sents', 'Alert Incident sent succesfully.', [
             {
@@ -54,7 +57,7 @@ const RegisterSymptoms = ({navigation}) => {
       var idArray = [];
       var incidentObj = {
         symptomatic: false,
-        covid_positive: null,
+        covid_positive: false,
         places: [],
       };
       var tenDayAgo = new Date(MainFunctions.getFixedDate());

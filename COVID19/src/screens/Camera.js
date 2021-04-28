@@ -8,7 +8,7 @@ import {MainFunctions} from '../utils/functions/mainFunctions';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const onSuccess = async (text) => {
+const onSuccess = async (text, navigation) => {
   const arrayPlaces = text.data.split('|');
   var placeObject = {
     id: 0,
@@ -29,14 +29,18 @@ const onSuccess = async (text) => {
     JSON.stringify(sannedPlacesWhitoutString),
   );
 
-  alert(`Place correctly scanned\nYou are in ${placeObject.namePlace}`);
+  Alert.alert(`Place correctly scanned\nYou are in ${placeObject.namePlace}`, [
+    {text: 'OK', onPress: () => navigation.navigate('Main')},
+  ]);
+
+  //alert(`Place correctly scanned\nYou are in ${placeObject.namePlace}`);
 };
 
-const Camera = () => {
+const Camera = ({navigation}) => {
   return (
     <View style={styles.container}>
       <QRCodeScanner
-        onRead={onSuccess}
+        onRead={onSuccess(navigation)}
         topContent={<Text style={styles.title}>{constans.qrTitle}</Text>}
         bottomContent={
           <Icon
