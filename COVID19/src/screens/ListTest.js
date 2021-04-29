@@ -1,12 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  Text,
-  StyleSheet,
-  View,
-  TextInput,
-  TouchableOpacity,
-  FlatList,
-} from 'react-native';
+import {Text, View, TouchableOpacity, FlatList} from 'react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Icon2 from 'react-native-vector-icons/Fontisto';
 import styles from '../utils/styles/loginAuthStyles/locationsStyles';
