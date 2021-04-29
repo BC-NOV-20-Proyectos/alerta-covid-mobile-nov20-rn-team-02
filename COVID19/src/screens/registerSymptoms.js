@@ -57,7 +57,7 @@ const RegisterSymptoms = ({navigation, route}) => {
       var idArray = [];
       var incidentObj = {
         symptomatic: false,
-        covid_positive: false,
+        covid_positive: covidResult,
         places: [],
       };
       var tenDayAgo = new Date(MainFunctions.getFixedDate());
