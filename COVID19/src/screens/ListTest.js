@@ -16,8 +16,8 @@ const Item = ({date, time, type, navigation}) => {
       <View style={styles.itemContainer}>
         <View>
           <Icon
-            size={30}
-            color={colors.greenLight}
+            size={40}
+            color={colors.purpleDark}
             style={styles.icon}
             name={type === 'viral' ? 'blood-drop' : 'blood-test'}
           />

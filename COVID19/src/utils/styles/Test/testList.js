@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   textsPlace: {
-    color: colors.white,
+    color: colors.greenLight,
     fontWeight: 'bold',
-    fontSize: 20,
+    fontSize: 18,
   },
   textsDateTime: {
     color: colors.white,

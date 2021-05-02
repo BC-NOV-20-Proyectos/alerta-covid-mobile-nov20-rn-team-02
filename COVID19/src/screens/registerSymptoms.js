@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Text, View, FlatList, Alert} from 'react-native';
 import CustomCheck from '../components/CustomCheck';
 import Button from '../components/Button';
@@ -7,16 +7,14 @@ import styles from '../utils/styles/symptomsStyles/symptomsStyles';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {MainFunctions} from '../utils/functions/mainFunctions';
 import axios from 'axios';
+import symptomsList from '../utils/json/symptoms';
 
 var count = 0;
 
 const RegisterSymptoms = ({navigation, route}) => {
   const {covidResult} = route.params;
-
   function incidentAPI(object) {
-    //object.covid_positive = console.log(object);
     AsyncStorage.getItem('userToken').then((res) => {
-      console.log(res);
       axios({
         headers: {
           Authorization: 'Bearer ' + res,
@@ -27,8 +25,6 @@ const RegisterSymptoms = ({navigation, route}) => {
         url: 'https://hidden-cliffs-21927.herokuapp.com/api/incident',
         data: object,
       }).then((response) => {
-        console.log('');
-        console.log(response.data.error);
         if (response.data.error === false) {
           Alert.alert('Incident Sents', 'Alert Incident sent succesfully.', [
             {
@@ -104,53 +100,11 @@ const RegisterSymptoms = ({navigation, route}) => {
         <Text style={styles.title}>{constans.QuestionSymptoms}</Text>
         <FlatList
           style={styles.listStyles}
-          data={[
-            {
-              id: '1',
-              name: 'Fever',
-            },
-            {
-              id: '2',
-              name: 'Cough',
-            },
-            {
-              id: '3',
-              name: 'Pain in chest with deep breaths',
-            },
-            {
-              id: '4',
-              name: 'Shortness of breaths',
-            },
-            {
-              id: '5',
-              name: 'Loss of smell',
-            },
-            {
-              id: '6',
-              name: 'Loss of taste',
-            },
-            {
-              id: '7',
-              name: 'Headache',
-            },
-            {
-              id: '8',
-              name: 'Fatigue of tiredness',
-            },
-            {
-              id: '9',
-              name: 'Muscle aches',
-            },
-            {
-              id: '10',
-              name: 'Sore throat',
-            },
-          ]}
+          data={symptomsList}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
         />
       </View>
-
       <View style={styles.buttonContainer}>
         <Button text="Done" onP={sendIncident} />
       </View>

@@ -5,7 +5,7 @@ import colors from '../../colors';
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: colors.blueDark,
+    backgroundColor: colors.purpleDark,
     alignItems: 'flex-start',
     justifyContent: 'space-around',
     padding: 15,
@@ -13,13 +13,11 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 40,
     color: colors.white,
-    marginTop: 10,
-    marginBottom: 20,
+    marginBottom: 30,
   },
   subTitle: {
     fontSize: 20,
-    color: colors.white,
-    fontWeight: 'bold',
+    color: colors.greenLight,
     marginBottom: 5,
   },
   picker: {

@@ -9,8 +9,6 @@ import colors from '../utils/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {MainFunctions} from '../utils/functions/mainFunctions';
 
-var currentDate = '';
-
 const TestDetails = ({navigation}) => {
   function navigate() {
     var test = {
@@ -57,13 +55,12 @@ const TestDetails = ({navigation}) => {
       <Text style={styles.subTitle}>{constans.selectType}</Text>
       <View style={styles.containerCombo}>
         <ComboBox
-          style={styles.ComboBox}
           values={values}
           onValueSelect={setSelectedValue}
           textColor={colors.purpleDark}
           fontSize={18}
           defaultValue={'Test type'}
-          backgroundColor={colors.purpleSuperLight}
+          backgroundColor={colors.purpleLight}
         />
       </View>
       <Text style={styles.subTitle}>{constans.selectDate}</Text>
@@ -74,7 +71,8 @@ const TestDetails = ({navigation}) => {
         mode={'date'}
         onDateChange={setDate}
         textColor={colors.purpleDark}
-        backgroundColor={colors.purpleSuperLight}
+        fadeToColor={colors.greenLight}
+        backgroundColor={colors.purpleLight}
       />
       <Button text={constans.done} onP={navigate} />
     </View>
