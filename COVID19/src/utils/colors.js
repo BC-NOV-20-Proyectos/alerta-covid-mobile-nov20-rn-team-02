@@ -8,8 +8,7 @@ export default colors = {
   gray: '#83898C',
   lightGray: '#E3E7F4',
   orange: '#D06053',
-  pinkDark: '#5B304C',
-  pinkLight: '#DD6C7E',
+  pinkLight: '#c6007e',
   isCheckedColor: '#5A4DCC',
   isUncheckedColor: '#5A4DCC',
   datePickTestColor: '#5A4DCC',
@@ -18,4 +17,6 @@ export default colors = {
   green: '#9bf6ff',
   greenLight: '#34a0a4',
   greenDark: '#34a0a4',
+  purpleBlue: '#3A36AB',
+  blueDark: '#151F65',
 };

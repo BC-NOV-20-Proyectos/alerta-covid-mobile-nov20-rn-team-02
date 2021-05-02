@@ -4,8 +4,8 @@ import colors from '../../colors';
 
 const styles = StyleSheet.create({
   icon: {
-    marginStart: 20, 
-    marginRight: 10,
+    marginStart: 10,
+    marginRight: 20,
   },
   mainMainConatiner: {
     flex: 1,
@@ -18,24 +18,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   mainTitle: {
-    textAlign: 'center',
-    fontSize: 30,
-    color: colors.greenLight,
-    fontWeight: 'bold',
+    marginLeft: 10,
+    fontSize: 35,
+    color: colors.white,
     paddingBottom: 20,
   },
   itemContainer: {
     alignSelf: 'center',
-    width: '90%',
-    padding: 10,
-    margin: 10,
-    marginTop: 20,
+    width: '95%',
+    padding: 15,
+    marginTop: 10,
     flexDirection: 'row',
-    borderRadius: 30,
+    borderRadius: 20,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    borderWidth: 2,
-    backgroundColor: colors.greenLight,
+    backgroundColor: colors.blueDark,
   },
   buttonContainer: {
     margin: 10,
@@ -45,7 +42,7 @@ const styles = StyleSheet.create({
   textsPlace: {
     color: colors.white,
     fontWeight: 'bold',
-    fontSize: 21,
+    fontSize: 20,
   },
   textsDateTime: {
     color: colors.white,

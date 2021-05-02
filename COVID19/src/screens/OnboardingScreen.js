@@ -11,7 +11,7 @@ const OnboardingScreen = ({navigation}) => {
       onDone={() => navigation.navigate('Main')}
       pages={[
         {
-          backgroundColor: colors.purpleLight,
+          backgroundColor: colors.blueDark,
           image: <Image source={require('../utils/images/onboarding1.png')} />,
           title: constans.welcome,
           subtitle: constans.subtitleOne,

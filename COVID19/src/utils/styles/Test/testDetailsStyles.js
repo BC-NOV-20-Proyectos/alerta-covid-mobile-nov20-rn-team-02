@@ -5,30 +5,30 @@ import colors from '../../colors';
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    alignItems: 'center',
+    backgroundColor: colors.blueDark,
+    alignItems: 'flex-start',
     justifyContent: 'space-around',
+    padding: 15,
   },
   title: {
-    fontSize: 35,
-    color: colors.purpleMedium,
-    fontWeight: 'bold',
+    fontSize: 40,
+    color: colors.white,
+    marginTop: 10,
+    marginBottom: 20,
   },
   subTitle: {
     fontSize: 20,
-    color: colors.purpleDark,
+    color: colors.white,
     fontWeight: 'bold',
-    alignSelf: 'flex-start',
-    marginLeft: 60,
+    marginBottom: 5,
   },
   picker: {
-    alignSelf: 'flex-start',
-    marginLeft: 50,
-    width: 370,
-    height: 300,
+    width: 350,
+    height: 250,
+    alignSelf: 'center',
   },
-  conatinerCombo: {
-    width: '75%',
-    //height: 170,
+  containerCombo: {
+    width: '100%',
   },
 });
 

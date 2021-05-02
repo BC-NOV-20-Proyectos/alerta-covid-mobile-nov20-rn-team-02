@@ -1,32 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, TouchableOpacity, FlatList} from 'react-native';
-import Icon from 'react-native-vector-icons/AntDesign';
-import Icon2 from 'react-native-vector-icons/Fontisto';
-import styles from '../utils/styles/loginAuthStyles/locationsStyles';
+import Icon from 'react-native-vector-icons/Fontisto';
+import styles from '../utils/styles/Test/testList';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-
-DATA = [
-  {
-    id: '1',
-    type: 'viral',
-    date: '10/03/98',
-  },
-  {
-    id: '2',
-    type: 'blood-drop',
-    date: '10/03/98',
-  },
-  {
-    id: '3',
-    type: 'viral',
-    date: '10/03/98',
-  },
-  {
-    id: '4',
-    type: 'virallll',
-    date: '10/03/98',
-  },
-];
+import constans from '../utils/constans';
+import colors from '../utils/colors';
+import Button from '../components/Button';
 
 const Item = ({date, time, type, navigation}) => {
   return (
@@ -36,15 +15,13 @@ const Item = ({date, time, type, navigation}) => {
       }}>
       <View style={styles.itemContainer}>
         <View>
-          <Icon2
-            size={40}
-            color="white"
+          <Icon
+            size={30}
+            color={colors.greenLight}
             style={styles.icon}
-            style={{marginStart: 20, marginRight: 10}}
             name={type === 'viral' ? 'blood-drop' : 'blood-test'}
           />
         </View>
-
         <View style={styles.textsContainer}>
           <Text style={styles.textsPlace}>{type}</Text>
           <Text style={styles.textsDateTime}>on {date}</Text>
@@ -68,7 +45,7 @@ const ListTest = ({navigation}) => {
   return (
     <View style={styles.mainMainConatiner}>
       <View style={styles.mainContainer}>
-        <Text style={styles.mainTitle}>List test</Text>
+        <Text style={styles.mainTitle}>{constans.listTest}</Text>
         <FlatList
           data={testList}
           renderItem={({item}) => {
@@ -83,13 +60,10 @@ const ListTest = ({navigation}) => {
           }}
           keyExtractor={(item) => item.id.toString()}
         />
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('TestDetails');
-          }}
-          style={styles.buttonContainer}>
-          <Icon size={60} color={colors.greenLight} name="pluscircleo" />
-        </TouchableOpacity>
+        <Button
+          onP={() => navigation.navigate('TestDetails')}
+          text={constans.addNewTest}
+        />
       </View>
     </View>
   );

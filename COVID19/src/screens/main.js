@@ -4,34 +4,13 @@ import styles from '../utils/styles/mainStyle';
 import constans from '../utils/constans';
 import Icon from 'react-native-vector-icons/AntDesign';
 import colors from '../utils/colors';
-
-const DATA = [
-  {
-    id: 1,
-    navigationName: 'ListTest',
-    title: constans.registerLab,
-    description: constans.registerLabDescription,
-    imageSource: require('../utils/images/laboratory.png'),
-  },
-  {
-    id: 2,
-    navigationName: 'Locations',
-    title: constans.locations,
-    description: constans.locationsDescription,
-    imageSource: require('../utils/images/maps.png'),
-  },
-  {
-    id: 3,
-    navigationName: 'Prevention',
-    title: constans.prevention,
-    description: constans.preventionDescription,
-    imageSource: require('../utils/images/vaccine.png'),
-  },
-];
+import menuData from '../utils/json/menu';
 
 const Item = ({item, onPress}) => (
   <TouchableOpacity onPress={onPress} style={styles.item}>
-    <Image style={styles.image} source={item.imageSource} />
+    <View style={styles.imgContainer}>
+      <Image style={styles.image} source={item.imageSource} />
+    </View>
     <Text style={styles.subtitle}>{item.title}</Text>
     <Text style={styles.description}>{item.description}</Text>
   </TouchableOpacity>
@@ -59,7 +38,7 @@ const Main = ({navigation}) => {
       <Text style={styles.titleLight}> {constans.tasksTitle} </Text>
       <FlatList
         horizontal={true}
-        data={DATA}
+        data={menuData}
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
       />

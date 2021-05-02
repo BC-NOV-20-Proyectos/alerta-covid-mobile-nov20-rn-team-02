@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Touchable} from 'react-native';
 import constans from '../utils/constans';
 import Button from '../components/Button';
-import styles from '../utils/styles/testDetailsStyles/testDetailsStyles';
+import styles from '../utils/styles/Test/testDetailsStyles';
 import DatePicker from 'react-native-date-picker';
 import ComboBox from 'react-native-combobox';
 import colors from '../utils/colors';
@@ -38,7 +38,7 @@ const TestDetails = ({navigation}) => {
           'ListCovidTest',
           JSON.stringify(ListCovidTestArray),
         );
-        navigation.navigate('RegisterSymptoms',{covidResult: null});
+        navigation.navigate('RegisterSymptoms', {covidResult: null});
       } else {
         alert('Please select if you test is Viral o Body');
       }
@@ -54,26 +54,27 @@ const TestDetails = ({navigation}) => {
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>{constans.testDetails}</Text>
-      <Text style={styles.subTitle}>{constans.selectDate}</Text>
       <Text style={styles.subTitle}>{constans.selectType}</Text>
-      <View style={styles.conatinerCombo}>
+      <View style={styles.containerCombo}>
         <ComboBox
           style={styles.ComboBox}
           values={values}
           onValueSelect={setSelectedValue}
           textColor={colors.purpleDark}
-          defaultValue={'Select type'}
-          backgroundColor={colors.purpleLight}
+          fontSize={18}
+          defaultValue={'Test type'}
+          backgroundColor={colors.purpleSuperLight}
         />
       </View>
-      <Text style={styles.subTitle}>{'Select Date'}</Text>
+      <Text style={styles.subTitle}>{constans.selectDate}</Text>
       <DatePicker
         style={styles.picker}
         androidVariant="nativeAndroid"
         date={date}
         mode={'date'}
         onDateChange={setDate}
-        customStyles={styles.datePickerStyles}
+        textColor={colors.purpleDark}
+        backgroundColor={colors.purpleSuperLight}
       />
       <Button text={constans.done} onP={navigate} />
     </View>

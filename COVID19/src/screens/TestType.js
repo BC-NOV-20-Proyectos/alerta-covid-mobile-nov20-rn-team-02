@@ -4,7 +4,7 @@ import Button from '../components/Button';
 import constans from '../utils/constans';
 import ButtonMain from '../components/ButtonMain';
 
-import styles from '../utils/styles/TestTypeStyles/TestTypeStyles';
+import styles from '../utils/styles/Test/testTypeStyles';
 
 const TestType = ({navigation}) => {
   return (
