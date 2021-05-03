@@ -3,6 +3,12 @@ import {Image} from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 import colors from '../utils/colors';
 import constans from '../utils/constans';
+import styles from '../utils/styles/preventionStyles/preventionStyles';
+import maskImageCarrousel from '../utils/images/mask.png';
+import handsImageCarrousel from '../utils/images/hands.png';
+import distanceImageCarrousel from '../utils/images/distance.png';
+import sanitizerImageCarrousel from '../utils/images/sanitizer.png';
+import stayHomImageCarrousel from '../utils/images/stay-home.png';
 
 const Prevention = ({navigation}) => {
   return (
@@ -12,33 +18,58 @@ const Prevention = ({navigation}) => {
       pages={[
         {
           backgroundColor: colors.purpleMedium,
-          image: <Image source={require('../utils/images/mask.png')} />,
+          image: (
+            <Image
+              style={styles.imageSize}
+              source={maskImageCarrousel}
+            />
+          ),
           title: constans.wearMask,
+          subtitle: constans.wearMaskSub,
         },
         {
           backgroundColor: colors.purpleLight,
-          image: <Image source={require('../utils/images/hands.png')} />,
+          image: (
+            <Image
+              style={styles.imageSize}
+              source={handsImageCarrousel}
+            />
+          ),
           title: constans.washHands,
+          subtitle: constans.washHandsSub,
         },
         {
           backgroundColor: colors.purpleDark,
-          image: <Image source={require('../utils/images/distance.png')} />,
+          image: (
+            <Image
+              style={styles.imageSize}
+              source={distanceImageCarrousel}
+            />
+          ),
           title: constans.keepDistance,
+          subtitle: constans.keepDistanceSub,
         },
         {
           backgroundColor: colors.purpleMedium,
-          image: <Image source={require('../utils/images/sanitizer.png')} />,
+          image: (
+            <Image
+              style={styles.imageSize}
+              source={require(sanitizerImageCarrousel}
+            />
+          ),
           title: constans.handSanitizer,
+          subtitle: constans.handSanitizerSub,
         },
         {
           backgroundColor: colors.purpleLight,
-          image: <Image source={require('../utils/images/stay-home.png')} />,
+          image: (
+            <Image
+              style={styles.imageSize}
+              source={require(stayHomImageCarrousel}
+            />
+          ),
           title: constans.stayHome,
-        },
-        {
-          backgroundColor: colors.purpleDark,
-          image: <Image source={require('../utils/images/gloves.png')} />,
-          title: constans.wearGloves,
+          subtitle: constans.stayHomeSub,
         },
       ]}
     />

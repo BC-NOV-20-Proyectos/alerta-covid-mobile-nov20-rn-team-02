@@ -51,13 +51,14 @@ const styles = StyleSheet.create({
   },
   containerButton: {
     backgroundColor: colors.greenDark,
-    width: '75%',
+    width: '90%',
     marginTop: 35,
     marginBottom: 35,
-    padding: 12,
+    padding: 15,
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    alignSelf: 'center',
   },
   textButton: {
     color: colors.white,

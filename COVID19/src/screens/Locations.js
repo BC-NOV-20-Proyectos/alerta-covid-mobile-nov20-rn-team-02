@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {TouchableOpacity, Text, View, FlatList} from 'react-native';
-import styles from '../utils/styles/loginAuthStyles/locationsStyles';
+import styles from '../utils/styles/Test/testList';
 import Icon from 'react-native-vector-icons/AntDesign';
 import {MainFunctions} from '../utils/functions/mainFunctions';
 import colors from '../utils/colors';
@@ -12,12 +12,7 @@ const Item = ({place, date}) => {
   return (
     <View style={styles.itemContainer}>
       <View>
-        <Icon
-          size={40}
-          color="white"
-          style={styles.icon}
-          name="calendar"
-        />
+        <Icon size={40} color="white" style={styles.icon} name="calendar" />
       </View>
 
       <View style={styles.textsContainer}>

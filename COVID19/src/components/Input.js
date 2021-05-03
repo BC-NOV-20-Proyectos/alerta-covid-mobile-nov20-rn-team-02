@@ -3,6 +3,7 @@ import {View, TextInput} from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/loginAuthStyles';
 import Icon from 'react-native-vector-icons/AntDesign';
 import colors from '../utils/colors';
+
 const Input = ({placeholderTxt, iconName, onChangeInput}) => {
   return (
     <View style={styles.inputContainer}>

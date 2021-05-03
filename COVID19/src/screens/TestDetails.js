@@ -2,14 +2,12 @@ import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Touchable} from 'react-native';
 import constans from '../utils/constans';
 import Button from '../components/Button';
-import styles from '../utils/styles/testDetailsStyles/testDetailsStyles';
+import styles from '../utils/styles/Test/testDetailsStyles';
 import DatePicker from 'react-native-date-picker';
 import ComboBox from 'react-native-combobox';
 import colors from '../utils/colors';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {MainFunctions} from '../utils/functions/mainFunctions';
-
-var currentDate = '';
 
 const TestDetails = ({navigation}) => {
   function navigate() {
@@ -38,7 +36,7 @@ const TestDetails = ({navigation}) => {
           'ListCovidTest',
           JSON.stringify(ListCovidTestArray),
         );
-        navigation.navigate('RegisterSymptoms',{covidResult: null});
+        navigation.navigate('RegisterSymptoms', {covidResult: null});
       } else {
         alert('Please select if you test is Viral o Body');
       }
@@ -54,26 +52,27 @@ const TestDetails = ({navigation}) => {
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.title}>{constans.testDetails}</Text>
-      <Text style={styles.subTitle}>{constans.selectDate}</Text>
       <Text style={styles.subTitle}>{constans.selectType}</Text>
-      <View style={styles.conatinerCombo}>
+      <View style={styles.containerCombo}>
         <ComboBox
-          style={styles.ComboBox}
           values={values}
           onValueSelect={setSelectedValue}
           textColor={colors.purpleDark}
-          defaultValue={'Select type'}
+          fontSize={18}
+          defaultValue={'Test type'}
           backgroundColor={colors.purpleLight}
         />
       </View>
-      <Text style={styles.subTitle}>{'Select Date'}</Text>
+      <Text style={styles.subTitle}>{constans.selectDate}</Text>
       <DatePicker
         style={styles.picker}
         androidVariant="nativeAndroid"
         date={date}
         mode={'date'}
         onDateChange={setDate}
-        customStyles={styles.datePickerStyles}
+        textColor={colors.purpleDark}
+        fadeToColor={colors.greenLight}
+        backgroundColor={colors.purpleLight}
       />
       <Button text={constans.done} onP={navigate} />
     </View>
