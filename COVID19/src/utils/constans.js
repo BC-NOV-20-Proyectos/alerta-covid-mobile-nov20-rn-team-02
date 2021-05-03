@@ -20,6 +20,7 @@ const constans = {
   login: 'Login',
   forgotPW: 'Forgot password?',
   urlAPI: 'https://hidden-cliffs-21927.herokuapp.com/api/user/sign_in',
+  urlAPIregIncident: 'https://hidden-cliffs-21927.herokuapp.com/api/incident',
   QuestionSymptoms: 'What symptoms do you have?',
   testType: 'Test Type',
   viralTest: 'Viral test',

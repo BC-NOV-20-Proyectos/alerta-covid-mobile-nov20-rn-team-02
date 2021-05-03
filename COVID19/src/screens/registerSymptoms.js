@@ -22,7 +22,7 @@ const RegisterSymptoms = ({navigation, route}) => {
           'Content-Type': 'application/json',
         },
         method: 'post',
-        url: 'https://hidden-cliffs-21927.herokuapp.com/api/incident',
+        url: urlAPIregIncident,
         data: object,
       }).then((response) => {
         if (response.data.error === false) {

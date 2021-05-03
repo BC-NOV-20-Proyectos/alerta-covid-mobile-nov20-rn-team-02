@@ -4,6 +4,11 @@ import Onboarding from 'react-native-onboarding-swiper';
 import colors from '../utils/colors';
 import constans from '../utils/constans';
 import styles from '../utils/styles/preventionStyles/preventionStyles';
+import maskImageCarrousel from '../utils/images/mask.png';
+import handsImageCarrousel from '../utils/images/hands.png';
+import distanceImageCarrousel from '../utils/images/distance.png';
+import sanitizerImageCarrousel from '../utils/images/sanitizer.png';
+import stayHomImageCarrousel from '../utils/images/stay-home.png';
 
 const Prevention = ({navigation}) => {
   return (
@@ -16,7 +21,7 @@ const Prevention = ({navigation}) => {
           image: (
             <Image
               style={styles.imageSize}
-              source={require('../utils/images/mask.png')}
+              source={maskImageCarrousel}
             />
           ),
           title: constans.wearMask,
@@ -27,7 +32,7 @@ const Prevention = ({navigation}) => {
           image: (
             <Image
               style={styles.imageSize}
-              source={require('../utils/images/hands.png')}
+              source={handsImageCarrousel}
             />
           ),
           title: constans.washHands,
@@ -38,7 +43,7 @@ const Prevention = ({navigation}) => {
           image: (
             <Image
               style={styles.imageSize}
-              source={require('../utils/images/distance.png')}
+              source={distanceImageCarrousel}
             />
           ),
           title: constans.keepDistance,
@@ -49,7 +54,7 @@ const Prevention = ({navigation}) => {
           image: (
             <Image
               style={styles.imageSize}
-              source={require('../utils/images/sanitizer.png')}
+              source={require(sanitizerImageCarrousel}
             />
           ),
           title: constans.handSanitizer,
@@ -60,7 +65,7 @@ const Prevention = ({navigation}) => {
           image: (
             <Image
               style={styles.imageSize}
-              source={require('../utils/images/stay-home.png')}
+              source={require(stayHomImageCarrousel}
             />
           ),
           title: constans.stayHome,
