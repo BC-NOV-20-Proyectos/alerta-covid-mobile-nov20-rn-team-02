@@ -30,7 +30,7 @@ const Main = ({navigation}) => {
           key: ''
         };
         axios.delete( 
-          constans.urlSingOut,
+          constans.urlService + 'user/sign_out',
           bodyParameters,
           config
         ).then((res) => {

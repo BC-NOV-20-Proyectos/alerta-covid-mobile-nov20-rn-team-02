@@ -19,8 +19,8 @@ const Login = ({navigation}) => {
       (formData.usuario !== '' || formData.contrasenia !== '')
     ) {
       const url =
-        constans.urlAPI +
-        '?api_user[email]=' +
+        constans.urlService +
+        'user/sign_in?api_user[email]=' +
         formData.usuario +
         '&api_user[password]=' +
         formData.contrasenia;
