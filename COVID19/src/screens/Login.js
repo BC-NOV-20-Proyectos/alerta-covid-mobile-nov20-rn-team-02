@@ -19,17 +19,17 @@ const Login = ({navigation}) => {
       (formData.usuario !== '' || formData.contrasenia !== '')
     ) {
       const url =
-        constans.urlAPI +
-        '?api_user[email]=' +
+        constans.urlService +
+        'user/sign_in?api_user[email]=' +
         formData.usuario +
         '&api_user[password]=' +
         formData.contrasenia;
       axios.post(url).then((res) => {
         if (res.data.token !== null) {
-          AsyncStorage.setItem('userToken', res.data.token);
+          AsyncStorage.setItem(constans.asyncTokenVar, res.data.token);
           navigation.navigate('Main');
         } else {
-          alert('Login failed!');
+          alert(constans.errorLoginFail);
         }
       });
     }

@@ -22,7 +22,7 @@ const RegisterSymptoms = ({navigation, route}) => {
           'Content-Type': 'application/json',
         },
         method: 'post',
-        url: urlAPIregIncident,
+        url: constans.urlService + 'incident',
         data: object,
       }).then((response) => {
         if (response.data.error === false) {
