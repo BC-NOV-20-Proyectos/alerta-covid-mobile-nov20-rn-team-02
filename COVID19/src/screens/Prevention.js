@@ -54,7 +54,7 @@ const Prevention = ({navigation}) => {
           image: (
             <Image
               style={styles.imageSize}
-              source={require(sanitizerImageCarrousel}
+              source={sanitizerImageCarrousel}
             />
           ),
           title: constans.handSanitizer,
@@ -65,7 +65,7 @@ const Prevention = ({navigation}) => {
           image: (
             <Image
               style={styles.imageSize}
-              source={require(stayHomImageCarrousel}
+              source={stayHomImageCarrousel}
             />
           ),
           title: constans.stayHome,

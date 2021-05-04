@@ -26,10 +26,10 @@ const Login = ({navigation}) => {
         formData.contrasenia;
       axios.post(url).then((res) => {
         if (res.data.token !== null) {
-          AsyncStorage.setItem('userToken', res.data.token);
+          AsyncStorage.setItem(constans.asyncTokenVar, res.data.token);
           navigation.navigate('Main');
         } else {
-          alert('Login failed!');
+          alert(constans.errorLoginFail);
         }
       });
     }

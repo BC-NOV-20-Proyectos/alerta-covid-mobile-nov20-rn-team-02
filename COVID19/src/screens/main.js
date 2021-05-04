@@ -5,6 +5,8 @@ import constans from '../utils/constans';
 import Icon from 'react-native-vector-icons/AntDesign';
 import colors from '../utils/colors';
 import menuData from '../utils/json/menu';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
 
 const Item = ({item, onPress}) => (
   <TouchableOpacity onPress={onPress} style={styles.item}>
@@ -17,6 +19,38 @@ const Item = ({item, onPress}) => (
 );
 
 const Main = ({navigation}) => {
+  const signOutReadAsyncToken = async () => {
+    try {
+      const token = await AsyncStorage.getItem(constans.asyncTokenVar);
+      if (token !== null) {
+        const config = {
+            headers: { Authorization: 'Bearer ' + token}
+        };
+        const bodyParameters = {
+          key: ''
+        };
+        axios.delete( 
+          constans.urlSingOut,
+          bodyParameters,
+          config
+        ).then((res) => {
+          console.log(res.data.code);
+          if (res.data.code === constans.signOutResDataCode)
+          {
+            navigation.navigate('Login');
+          }
+          else{
+            alert(constans.errorSignOut);
+          }  
+        }).catch((e) => {
+          alert(e.toString());
+        });
+      }
+    } catch (e) {
+      alert(e.toString());
+    }
+  };
+
   const renderItem = ({item}) => {
     return (
       <Item
@@ -28,7 +62,7 @@ const Main = ({navigation}) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => alert('Logout')}
+        onPress={() => signOutReadAsyncToken()}
         style={styles.logoutContainer}>
         <Icon name="logout" size={45} color={colors.lightGray} />
       </TouchableOpacity>
