@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import colors from '../utils/colors';
 import menuData from '../utils/json/menu';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import axios from 'axios';
+import services from '../utils/functions/services';
 
 const Item = ({item, onPress}) => (
   <TouchableOpacity onPress={onPress} style={styles.item}>
@@ -23,28 +23,22 @@ const Main = ({navigation}) => {
     try {
       const token = await AsyncStorage.getItem(constans.asyncTokenVar);
       if (token !== null) {
+        const webservice = constans.urlService + 'user/sign_out';
         const config = {
             headers: { Authorization: 'Bearer ' + token}
         };
         const bodyParameters = {
           key: ''
         };
-        axios.delete( 
-          constans.urlService + 'user/sign_out',
-          bodyParameters,
-          config
-        ).then((res) => {
-          console.log(res.data.code);
-          if (res.data.code === constans.signOutResDataCode)
-          {
+        services.signOut(webservice, bodyParameters, config).then((resData)=>{
+          if(resData === constans.signOutResDataCode)
+          { 
             navigation.navigate('Login');
           }
           else{
             alert(constans.errorSignOut);
           }  
-        }).catch((e) => {
-          alert(e.toString());
-        });
+        });             
       }
     } catch (e) {
       alert(e.toString());
