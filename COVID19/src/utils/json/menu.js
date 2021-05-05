@@ -17,6 +17,13 @@ const menuData = [
   },
   {
     id: 3,
+    navigationName: 'IncidentReport',
+    title: constans.incidentResportTitle,
+    description: constans.incidentResportDescription,
+    imageSource: require('../images/vaccine.png'),
+  },
+  {
+    id: 4,
     navigationName: 'Prevention',
     title: constans.prevention,
     description: constans.preventionDescription,

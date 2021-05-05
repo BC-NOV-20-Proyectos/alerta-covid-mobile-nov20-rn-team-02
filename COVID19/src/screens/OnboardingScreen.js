@@ -7,8 +7,8 @@ import constans from '../utils/constans';
 const OnboardingScreen = ({navigation}) => {
   return (
     <Onboarding
-      onSkip={() => navigation.navigate('Login')}
-      onDone={() => navigation.navigate('Login')}
+      onSkip={() => navigation.navigate('Main')}
+      onDone={() => navigation.navigate('Main')}
       pages={[
         {
           backgroundColor: colors.blueDark,
