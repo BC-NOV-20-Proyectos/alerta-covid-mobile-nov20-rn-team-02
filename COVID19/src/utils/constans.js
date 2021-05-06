@@ -53,5 +53,10 @@ const constans = {
   titleLocation: 'Locations',
   listTest: 'Your list test',
   addNewTest: 'Add new test',
+  incidentResportTitle: 'Incident Reports',
+  incidentResportDescription: 'See currently incidents',
+  ReportTitle: 'Incident Report',
+  urlReport:
+    'https://hidden-cliffs-21927.herokuapp.com/api/reports/place_reports',
 };
 export default constans;

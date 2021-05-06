@@ -11,6 +11,7 @@ import Camera from '../screens/Camera';
 import ListTest from '../screens/ListTest';
 import TestResultsDetails from '../screens/TestResultDetails';
 import Prevention from '../screens/Prevention';
+import IncidentReport from '../screens/IncidentResport';
 
 const AppStack = createStackNavigator();
 
@@ -35,6 +36,7 @@ const StackNavigator = () => {
           component={TestResultsDetails}
         />
         <AppStack.Screen name="Prevention" component={Prevention} />
+        <AppStack.Screen name="IncidentReport" component={IncidentReport} />
       </AppStack.Navigator>
     </NavigationContainer>
   );
