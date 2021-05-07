@@ -12,4 +12,16 @@ export default {
             return e.toString();
           }); 
     },
+  passRecovery: async (mail, url) => {
+        return axios.post(
+        url,
+        {
+          email: mail,
+        },
+        ).then((res) => {
+          return res.data.code;
+        }).catch((e) => {
+          return e.toString();
+        });
+    },
   };
