@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
-import {Text, View, Image} from 'react-native';
+import {Text, View, Image, TouchableOpacity} from 'react-native';
 import styles from '../utils/styles/loginAuthStyles/loginAuthStyles';
 import Button from '../components/Button';
 import Input from '../components/Input';
 import constans from '../utils/constans';
 import axios from 'axios';
+import services from '../utils/functions/services';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -12,6 +13,24 @@ const Login = ({navigation}) => {
   const [formData, setFormData] = useState(defaultValue());
   const onChange = (e, type) => {
     setFormData({...formData, [type]: e.nativeEvent.text});
+  };
+  const pleaseRecovery = () => {
+    try {
+        const urlRecovery = constans.urlService + 'recovery/password';
+        
+        services.passRecovery(formData.usuario, urlRecovery).then((resData)=>{
+          if(resData === constans.recoveryOKDataCode)
+          { 
+            alert(constans.recoverySuccessful);
+          }
+          else{
+            alert(constans.errorRecovery);
+          }  
+        });             
+
+    } catch (e) {
+      alert(e.toString());
+    }
   };
   const putLoginOk = () => {
     if (
@@ -57,7 +76,10 @@ const Login = ({navigation}) => {
           onChangeInput={(e) => onChange(e, constans.typePass)}
         />
         <Button text={constans.login} onP={putLoginOk} />
-        <Text style={styles.textForgotPW}> {constans.forgotPW} </Text>
+        <TouchableOpacity onPress={pleaseRecovery}>
+          <Text style={styles.textForgotPW}> {constans.forgotPW} </Text>
+        </TouchableOpacity>
+        
       </View>
     </View>
   );
