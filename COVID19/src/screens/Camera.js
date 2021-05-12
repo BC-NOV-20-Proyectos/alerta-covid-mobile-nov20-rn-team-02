@@ -10,7 +10,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Camera = ({navigation}) => {
   const onSuccess = async (text) => {
-    console.log(text);
     const arrayPlaces = text.data.split('|');
     var placeObject = {
       id: 0,

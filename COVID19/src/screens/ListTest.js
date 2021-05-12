@@ -32,7 +32,7 @@ const Item = ({date, time, type, navigation}) => {
 };
 
 const ListTest = ({navigation}) => {
-  const [testList, setTestList] = useState();
+  const [testList, setTestList] = useState([]);
   useEffect(() => {
     AsyncStorage.getItem('ListCovidTest').then((res) => {
       if (res === null) {
@@ -46,6 +46,13 @@ const ListTest = ({navigation}) => {
     <View style={styles.mainMainConatiner}>
       <View style={styles.mainContainer}>
         <Text style={styles.mainTitle}>{constans.listTest}</Text>
+        <Text
+          style={
+            testList.length === 0 ? styles.showMessage : styles.hideMessage
+          }>
+          {'No test yet, press button bellow to add one'}
+        </Text>
+        {/*<Text style={{color: 'red'}}>{'constans.listTest'}</Text>*/}
         <FlatList
           data={testList}
           renderItem={({item}) => {

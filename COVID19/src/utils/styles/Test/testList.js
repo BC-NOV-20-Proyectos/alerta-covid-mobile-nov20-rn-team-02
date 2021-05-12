@@ -49,6 +49,15 @@ const styles = StyleSheet.create({
     fontWeight: '200',
     fontSize: 15,
   },
+  showMessage: {
+    fontSize: 20,
+    textAlign: 'center',
+    color: colors.white,
+    marginTop: 50,
+  },
+  hideMessage: {
+    display: 'none',
+  },
 });
 
 export default styles;
