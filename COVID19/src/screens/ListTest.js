@@ -6,6 +6,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import constans from '../utils/constans';
 import colors from '../utils/colors';
 import Button from '../components/Button';
+//import constans from '../utils/constans';
 
 const Item = ({date, time, type, navigation}) => {
   return (
@@ -50,9 +51,8 @@ const ListTest = ({navigation}) => {
           style={
             testList.length === 0 ? styles.showMessage : styles.hideMessage
           }>
-          {'No test yet, press button bellow to add one'}
+          {constans.noItemsYet}
         </Text>
-        {/*<Text style={{color: 'red'}}>{'constans.listTest'}</Text>*/}
         <FlatList
           data={testList}
           renderItem={({item}) => {

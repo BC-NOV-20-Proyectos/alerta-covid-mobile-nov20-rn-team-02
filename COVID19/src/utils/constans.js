@@ -61,5 +61,6 @@ const constans = {
   ReportTitle: 'Incident Report',
   urlReport:
     'https://hidden-cliffs-21927.herokuapp.com/api/reports/place_reports',
+  noItemsYet: 'No items yet, press bellow button to add one',
 };
 export default constans;

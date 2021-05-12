@@ -24,7 +24,7 @@ const Item = ({place, date}) => {
 };
 
 const Location = ({navigation}) => {
-  const [dataPlaces, setDataPlaces] = useState();
+  const [dataPlaces, setDataPlaces] = useState([]);
   useEffect(() => {
     AsyncStorage.getItem('ScannedPlaces').then((res) => {
       if (res === null) {
@@ -39,6 +39,12 @@ const Location = ({navigation}) => {
     <View style={styles.mainMainConatiner}>
       <View style={styles.mainContainer}>
         <Text style={styles.mainTitle}>{constans.titleLocation}</Text>
+        <Text
+          style={
+            dataPlaces.length === 0 ? styles.showMessage : styles.hideMessage
+          }>
+          {constans.noItemsYet}
+        </Text>
         <FlatList
           data={dataPlaces}
           renderItem={({item}) => {
