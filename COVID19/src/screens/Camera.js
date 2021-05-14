@@ -31,16 +31,9 @@ const Camera = ({navigation}) => {
     );
 
     Alert.alert(
-      'Place Correctly Scanned',
+      'Place scanned successfully!',
       'You are in' + ' ' + placeObject.namePlace,
-      [
-        {
-          text: 'Cancel',
-          onPress: () => navigation.navigate('Main'),
-          style: 'cancel',
-        },
-        {text: 'OK', onPress: () => navigation.navigate('Main')},
-      ],
+      [{text: 'OK', onPress: () => navigation.navigate('Main')}],
     );
   };
 
@@ -50,12 +43,7 @@ const Camera = ({navigation}) => {
         onRead={onSuccess}
         topContent={<Text style={styles.title}>{constans.qrTitle}</Text>}
         bottomContent={
-          <Icon
-            name="md-scan-outline"
-            color="white"
-            size={300}
-            style={styles.icon}
-          />
+          <Text style={styles.bottomText}>{constans.qrDescription}</Text>
         }
       />
     </View>

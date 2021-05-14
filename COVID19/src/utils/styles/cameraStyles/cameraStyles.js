@@ -4,19 +4,20 @@ import colors from '../../colors';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.purpleMedium,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: colors.o1,
+  },
+  bottomContainer: {
+    flex: 2,
   },
   title: {
-    fontSize: 30,
+    fontSize: 25,
     color: colors.white,
     marginBottom: 60,
-    fontWeight: 'bold',
   },
-  icon: {
-    marginBottom: 500,
-    marginLeft: 25,
+  bottomText: {
+    fontSize: 16,
+    color: colors.o3,
+    marginTop: 50,
   },
 });
 

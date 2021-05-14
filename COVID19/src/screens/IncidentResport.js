@@ -15,32 +15,26 @@ const RenderItem = ({
   covidNegative,
 }) => {
   return (
-    <Card>
+    <Card style={styles.cardStyle}>
       <Card.Title style={styles.cardTitle}>{area}</Card.Title>
       <View style={styles.view}>
         <Text style={styles.title}>{'Institute: '}</Text>
         <Text style={styles.value}>{institute}</Text>
       </View>
-
       <View style={styles.view}>
         <Text style={styles.title}>{'Name: '}</Text>
         <Text style={styles.value}>{name}</Text>
       </View>
-
       <Card.Divider />
-
       <Card.Title style={styles.cardTitleStatistics}>{'Reports'}</Card.Title>
-
       <View style={styles.view}>
         <Text style={styles.titleStatistics}>{'Symptomatycs: '}</Text>
         <Text style={styles.value}>{syntomatic + ' ' + 'Persons'}</Text>
       </View>
-
       <View style={styles.view}>
         <Text style={styles.titleStatistics}>{'Covid Positive: '}</Text>
         <Text style={styles.value}>{covidPositive + ' ' + 'Persons'}</Text>
       </View>
-
       <View style={styles.view}>
         <Text style={styles.titleStatistics}>{'Covid Negative: '}</Text>
         <Text style={styles.value}>{covidNegative + ' ' + 'Persons'}</Text>
@@ -51,7 +45,6 @@ const RenderItem = ({
 
 const IncidentReport = () => {
   const [reportData, setReportData] = useState([]);
-
   useEffect(() => {
     AsyncStorage.getItem('userToken').then((res) => {
       axios({
@@ -70,7 +63,9 @@ const IncidentReport = () => {
 
   return (
     <View style={styles.mainContainer}>
-      <Text style={styles.titleReport}>{constans.ReportTitle}</Text>
+      <View style={styles.topContainer}>
+        <Text style={styles.titleReport}>{constans.reportTitle}</Text>
+      </View>
       <FlatList
         data={reportData}
         renderItem={(item) => (

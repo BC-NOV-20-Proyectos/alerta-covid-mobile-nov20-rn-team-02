@@ -6,7 +6,6 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import constans from '../utils/constans';
 import colors from '../utils/colors';
 import Button from '../components/Button';
-//import constans from '../utils/constans';
 
 const Item = ({date, time, type, navigation}) => {
   return (
@@ -17,15 +16,15 @@ const Item = ({date, time, type, navigation}) => {
       <View style={styles.itemContainer}>
         <View>
           <Icon
-            size={40}
-            color={colors.purpleDark}
+            size={25}
+            color={colors.o3}
             style={styles.icon}
-            name={type === 'viral' ? 'blood-drop' : 'blood-test'}
+            name={type === 'Viral' ? 'blood-drop' : 'blood-test'}
           />
         </View>
         <View style={styles.textsContainer}>
-          <Text style={styles.textsPlace}>{type}</Text>
-          <Text style={styles.textsDateTime}>on {date}</Text>
+          <Text style={styles.textPlace}>{type}</Text>
+          <Text style={styles.textDate}>{date}</Text>
         </View>
       </View>
     </TouchableOpacity>
@@ -44,15 +43,21 @@ const ListTest = ({navigation}) => {
     });
   }, []);
   return (
-    <View style={styles.mainMainConatiner}>
-      <View style={styles.mainContainer}>
+    <View style={styles.container}>
+      <View style={styles.topContainer}>
         <Text style={styles.mainTitle}>{constans.listTest}</Text>
         <Text
           style={
             testList.length === 0 ? styles.showMessage : styles.hideMessage
           }>
-          {constans.noItemsYet}
+          {constans.noTestYet}
         </Text>
+        <Text
+          style={testList.length > 0 ? styles.showMessage : styles.hideMessage}>
+          {constans.registerLabDescription}
+        </Text>
+      </View>
+      <View style={styles.flatContainer}>
         <FlatList
           data={testList}
           renderItem={({item}) => {
@@ -67,6 +72,8 @@ const ListTest = ({navigation}) => {
           }}
           keyExtractor={(item) => item.id.toString()}
         />
+      </View>
+      <View style={styles.btnContainer}>
         <Button
           onP={() => navigation.navigate('TestDetails')}
           text={constans.addNewTest}

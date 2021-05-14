@@ -5,20 +5,34 @@ import colors from '../../colors';
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: colors.purpleDark,
+    backgroundColor: colors.o2,
     alignItems: 'flex-start',
     justifyContent: 'space-around',
     padding: 15,
   },
-  title: {
-    fontSize: 40,
-    color: colors.white,
-    marginBottom: 30,
+  topContainer: {
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+    width: '100%',
+    backgroundColor: colors.o1,
+    padding: 20,
+    opacity: 0.9,
+    borderRadius: 10,
+    marginBottom: 20,
   },
-  subTitle: {
-    fontSize: 20,
-    color: colors.greenLight,
+  title: {
+    fontSize: 30,
+    color: colors.white,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: colors.o3,
+  },
+  label: {
+    fontSize: 16,
+    color: colors.o3,
     marginBottom: 5,
+    fontWeight: 'bold',
   },
   picker: {
     width: 350,

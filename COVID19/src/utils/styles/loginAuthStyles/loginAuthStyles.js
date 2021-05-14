@@ -2,59 +2,54 @@ import React from 'react';
 import {StyleSheet} from 'react-native';
 import colors from '../../colors';
 const styles = StyleSheet.create({
-  iconStyle: {
-    marginStart: 15,
-    alignSelf: 'center',
-  },
   mainContainer: {
     flex: 1,
-    backgroundColor: colors.purpleDark,
-    padding: 30,
+    backgroundColor: colors.o2,
+    padding: 20,
   },
   topContainer: {
     width: '100%',
     height: '40%',
-    alignItems: 'flex-end',
+    alignItems: 'center',
     justifyContent: 'center',
-    padding: 10,
+  },
+  welcomeImg: {
+    width: '90%',
+    height: '100%',
+  },
+  txtTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: colors.white,
+    alignSelf: 'flex-start',
+    marginTop: 12,
   },
   bottomContainer: {
     height: '60%',
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'space-around',
-    paddingTop: 30,
-  },
-  txtTitle: {
-    fontSize: 22,
-    color: colors.white,
-    alignSelf: 'flex-start',
-    marginTop: 12,
-  },
-  textForgotPW: {
-    color: colors.white,
-    fontSize: 16,
-    marginBottom: 10,
   },
   inputContainer: {
     flexDirection: 'row',
     width: '100%',
-    borderWidth: 2,
     marginTop: 20,
-    borderBottomColor: colors.green,
-    borderTopColor: colors.purpleDark,
-    borderRightColor: colors.purpleDark,
-    borderLeftColor: colors.purpleDark,
-  },
-  inputInput: {
+    backgroundColor: colors.o1,
+    borderRadius: 50,
     color: colors.white,
+  },
+  inputText: {
+    color: colors.o3,
+  },
+  iconStyle: {
+    marginStart: 20,
+    alignSelf: 'center',
   },
   containerButton: {
     backgroundColor: colors.greenDark,
-    width: '90%',
-    marginTop: 35,
-    marginBottom: 35,
-    padding: 15,
+    width: '80%',
+    marginTop: 40,
+    marginBottom: 40,
+    padding: 10,
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
@@ -63,11 +58,12 @@ const styles = StyleSheet.create({
   textButton: {
     color: colors.white,
     fontWeight: 'bold',
-    fontSize: 18,
+    fontSize: 16,
   },
-  img: {
-    width: 260,
-    height: 260,
+  textForgotPW: {
+    color: colors.white,
+    fontSize: 12,
+    marginBottom: 10,
   },
 });
 

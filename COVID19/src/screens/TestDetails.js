@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Touchable} from 'react-native';
+import {View, Text} from 'react-native';
 import constans from '../utils/constans';
 import Button from '../components/Button';
 import styles from '../utils/styles/Test/testDetailsStyles';
@@ -51,28 +51,31 @@ const TestDetails = ({navigation}) => {
 
   return (
     <View style={styles.mainContainer}>
-      <Text style={styles.title}>{constans.testDetails}</Text>
-      <Text style={styles.subTitle}>{constans.selectType}</Text>
+      <View style={styles.topContainer}>
+        <Text style={styles.title}>{constans.testDetails}</Text>
+        <Text style={styles.subtitle}>{constans.addTestDetails}</Text>
+      </View>
+      <Text style={styles.label}>{constans.selectType}</Text>
       <View style={styles.containerCombo}>
         <ComboBox
           values={values}
           onValueSelect={setSelectedValue}
-          textColor={colors.purpleDark}
-          fontSize={18}
+          textColor={colors.o2}
+          fontSize={14}
           defaultValue={'Test type'}
-          backgroundColor={colors.purpleLight}
+          backgroundColor={colors.o3}
         />
       </View>
-      <Text style={styles.subTitle}>{constans.selectDate}</Text>
+      <Text style={styles.label}>{constans.selectDate}</Text>
       <DatePicker
         style={styles.picker}
         androidVariant="nativeAndroid"
         date={date}
         mode={'date'}
         onDateChange={setDate}
-        textColor={colors.purpleDark}
-        fadeToColor={colors.greenLight}
-        backgroundColor={colors.purpleLight}
+        textColor={colors.o3}
+        fadeToColor={colors.o1}
+        backgroundColor={colors.o2}
       />
       <Button text={constans.done} onP={navigate} />
     </View>

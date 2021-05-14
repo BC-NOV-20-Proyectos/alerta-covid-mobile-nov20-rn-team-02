@@ -22,13 +22,6 @@ const menuData = [
     description: constans.incidentResportDescription,
     imageSource: require('../images/reports.svg'),
   },
-  {
-    id: 4,
-    navigationName: 'Prevention',
-    title: constans.prevention,
-    description: constans.preventionDescription,
-    imageSource: require('../images/vaccine.png'),
-  },
 ];
 
 export default menuData;

@@ -25,20 +25,18 @@ const Main = ({navigation}) => {
       if (token !== null) {
         const webservice = constans.urlService + 'user/sign_out';
         const config = {
-            headers: { Authorization: 'Bearer ' + token}
+          headers: {Authorization: 'Bearer ' + token},
         };
         const bodyParameters = {
-          key: ''
+          key: '',
         };
-        services.signOut(webservice, bodyParameters, config).then((resData)=>{
-          if(resData === constans.signOutResDataCode)
-          { 
+        services.signOut(webservice, bodyParameters, config).then((resData) => {
+          if (resData === constans.signOutResDataCode) {
             navigation.navigate('Login');
-          }
-          else{
+          } else {
             alert(constans.errorSignOut);
-          }  
-        });             
+          }
+        });
       }
     } catch (e) {
       alert(e.toString());
@@ -58,12 +56,12 @@ const Main = ({navigation}) => {
       <TouchableOpacity
         onPress={() => signOutReadAsyncToken()}
         style={styles.logoutContainer}>
-        <Icon name="logout" size={45} color={colors.lightGray} />
+        <Icon name="logout" size={35} color={colors.white} />
       </TouchableOpacity>
       <View style={styles.titleContainer}>
         <Text style={styles.titleBold}>{constans.greeting}</Text>
+        <Text style={styles.titleLight}>{constans.tasksTitle}</Text>
       </View>
-      <Text style={styles.titleLight}> {constans.tasksTitle} </Text>
       <FlatList
         horizontal={true}
         data={menuData}

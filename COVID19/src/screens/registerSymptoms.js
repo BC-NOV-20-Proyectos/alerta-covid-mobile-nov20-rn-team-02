@@ -26,21 +26,11 @@ const RegisterSymptoms = ({navigation, route}) => {
         data: object,
       }).then((response) => {
         if (response.data.error === false) {
-          Alert.alert('Incident Sents', 'Alert Incident sent succesfully.', [
-            {
-              text: 'Cancel',
-              onPress: () => navigation.navigate('Main'),
-              style: 'cancel',
-            },
+          Alert.alert('Incident sent', 'Alert incident sent succesfully!', [
             {text: 'OK', onPress: () => navigation.navigate('Main')},
           ]);
         } else {
           Alert.alert('Incident Error', 'This alert was not sent', [
-            {
-              text: 'Cancel',
-              onPress: () => navigation.navigate('Main'),
-              style: 'cancel',
-            },
             {text: 'OK', onPress: () => navigation.navigate('Main')},
           ]);
         }
@@ -97,7 +87,10 @@ const RegisterSymptoms = ({navigation, route}) => {
   return (
     <View style={styles.supermainContainer}>
       <View style={styles.mainContainer}>
-        <Text style={styles.title}>{constans.QuestionSymptoms}</Text>
+        <View style={styles.topContainer}>
+          <Text style={styles.title}>{constans.QuestionSymptoms}</Text>
+          <Text style={styles.subtitle}>{constans.seeAllSymptoms}</Text>
+        </View>
         <FlatList
           style={styles.listStyles}
           data={symptomsList}
@@ -106,7 +99,7 @@ const RegisterSymptoms = ({navigation, route}) => {
         />
       </View>
       <View style={styles.buttonContainer}>
-        <Button text="Done" onP={sendIncident} />
+        <Button text={constans.done} onP={sendIncident} />
       </View>
     </View>
   );

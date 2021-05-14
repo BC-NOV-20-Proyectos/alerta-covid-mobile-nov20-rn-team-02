@@ -1,24 +1,14 @@
 import React, {useEffect, useState} from 'react';
-import {TouchableOpacity, Text, View, FlatList} from 'react-native';
-import styles from '../utils/styles/Test/testList';
-import Icon from 'react-native-vector-icons/AntDesign';
-import {MainFunctions} from '../utils/functions/mainFunctions';
-import colors from '../utils/colors';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Text, View, FlatList} from 'react-native';
+import styles from '../utils/styles/Locations/Locations';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import constans from '../utils/constans';
-
+import Button from '../components/Button';
 const Item = ({place, date}) => {
   return (
     <View style={styles.itemContainer}>
-      <View>
-        <Icon size={40} color="white" style={styles.icon} name="calendar" />
-      </View>
-
-      <View style={styles.textsContainer}>
-        <Text style={styles.textsPlace}>{place}</Text>
-        <Text style={styles.textsDateTime}>on {date}</Text>
-      </View>
+      <Text style={styles.textPlace}>{place}</Text>
+      <Text style={styles.textDate}>{date}</Text>
     </View>
   );
 };
@@ -36,15 +26,23 @@ const Location = ({navigation}) => {
   }, []);
 
   return (
-    <View style={styles.mainMainConatiner}>
-      <View style={styles.mainContainer}>
+    <View style={styles.container}>
+      <View style={styles.topContainer}>
         <Text style={styles.mainTitle}>{constans.titleLocation}</Text>
         <Text
           style={
             dataPlaces.length === 0 ? styles.showMessage : styles.hideMessage
           }>
-          {constans.noItemsYet}
+          {constans.noLocationsYet}
         </Text>
+        <Text
+          style={
+            dataPlaces.length > 0 ? styles.showMessage : styles.hideMessage
+          }>
+          {constans.locationsDescription}
+        </Text>
+      </View>
+      <View style={styles.flatContainer}>
         <FlatList
           data={dataPlaces}
           renderItem={({item}) => {
@@ -53,12 +51,11 @@ const Location = ({navigation}) => {
           keyExtractor={(item) => item.id.toString()}
         />
       </View>
-      <View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Camera')}
-          style={styles.buttonContainer}>
-          <Icon size={60} color={colors.purpleMedium} name="pluscircleo" />
-        </TouchableOpacity>
+      <View style={styles.btnContainer}>
+        <Button
+          text={constans.addNewLocation}
+          onP={() => navigation.navigate('Camera')}
+        />
       </View>
     </View>
   );
