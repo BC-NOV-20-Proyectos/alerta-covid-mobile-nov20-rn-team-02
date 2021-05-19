@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
   },
   bottomText: {
     fontSize: 16,
-    color: colors.o3,
+    color: colors.white,
     marginTop: 50,
   },
 });

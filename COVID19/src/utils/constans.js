@@ -67,5 +67,10 @@ const constans = {
   done: 'Done',
   seeAllSymptoms: 'Scroll down to see all symptoms',
   addTestDetails: 'Add your test details here',
+  covidCases:
+    ' COVID Live Update: More than 165,373,639 Cases and 3,427,064 Deaths.',
+  goThere: 'Go there clicking here!',
+  covidCasesUrl: 'https://www.worldometers.info/coronavirus/',
+  incidentsReport: 'All incidents report registered',
 };
 export default constans;

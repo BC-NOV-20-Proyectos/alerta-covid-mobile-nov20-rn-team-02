@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   showMessage: {
-    fontSize: 14,
-    color: colors.o3,
+    fontSize: 15,
+    color: colors.greenLight,
   },
   hideMessage: {
     display: 'none',
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
   flatContainer: {
     backgroundColor: colors.purpleBlue,
     width: '95%',
-    height: '62%',
-    marginTop: 15,
+    height: '68%',
+    marginTop: 10,
     borderRadius: 10,
     padding: 10,
     flexDirection: 'row',
@@ -52,16 +52,17 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: 'bold',
     fontSize: 18,
+    textTransform: 'uppercase',
   },
   textDate: {
     color: colors.greenLight,
     fontWeight: '200',
-    fontSize: 15,
+    fontSize: 16,
   },
   btnContainer: {
     flex: 1,
     width: '95%',
-    height: '15%',
+    height: '20%',
   },
 });
 

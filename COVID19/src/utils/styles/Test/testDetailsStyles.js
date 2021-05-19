@@ -25,8 +25,8 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   subtitle: {
-    fontSize: 14,
-    color: colors.o3,
+    fontSize: 15,
+    color: colors.greenLight,
   },
   label: {
     fontSize: 16,
