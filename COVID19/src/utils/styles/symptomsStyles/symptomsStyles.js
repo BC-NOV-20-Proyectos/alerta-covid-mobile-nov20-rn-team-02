@@ -1,38 +1,49 @@
 import React from 'react';
 import {StyleSheet} from 'react-native';
-
 import colors from '../../colors';
 
 const styles = StyleSheet.create({
   supermainContainer: {
     flex: 1,
     justifyContent: 'center',
+    backgroundColor: colors.o2,
   },
   mainContainer: {
-    backgroundColor: colors.blueDark,
+    backgroundColor: colors.o2,
     alignItems: 'center',
     flex: 10,
   },
+  topContainer: {
+    width: '95%',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+    backgroundColor: colors.o1,
+    padding: 20,
+    opacity: 0.9,
+    borderRadius: 10,
+    marginTop: 10,
+  },
   title: {
-    textAlign: 'center',
-    fontSize: 25,
+    fontSize: 22,
     color: colors.white,
-    marginTop: 30,
+  },
+  subtitle: {
+    fontSize: 14,
+    color: colors.o3,
   },
   listStyles: {
-    marginTop: 20,
+    marginTop: 15,
     width: '95%',
     backgroundColor: colors.blueDark,
   },
   buttonContainer: {
     alignItems: 'center',
     width: '100%',
-    flex: 2,
-    backgroundColor: colors.blueDark,
+    padding: 10,
   },
   text: {
     color: colors.purpleDark,
-    fontSize: 16,
+    fontSize: 14,
   },
 });
 

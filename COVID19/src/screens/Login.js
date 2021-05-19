@@ -16,18 +16,15 @@ const Login = ({navigation}) => {
   };
   const pleaseRecovery = () => {
     try {
-        const urlRecovery = constans.urlService + 'recovery/password';
-        
-        services.passRecovery(formData.usuario, urlRecovery).then((resData)=>{
-          if(resData === constans.recoveryOKDataCode)
-          { 
-            alert(constans.recoverySuccessful);
-          }
-          else{
-            alert(constans.errorRecovery);
-          }  
-        });             
+      const urlRecovery = constans.urlService + 'recovery/password';
 
+      services.passRecovery(formData.usuario, urlRecovery).then((resData) => {
+        if (resData === constans.recoveryOKDataCode) {
+          alert(constans.recoverySuccessful);
+        } else {
+          alert(constans.errorRecovery);
+        }
+      });
     } catch (e) {
       alert(e.toString());
     }
@@ -57,21 +54,21 @@ const Login = ({navigation}) => {
     <View style={styles.mainContainer}>
       <View style={styles.topContainer}>
         <Image
-          style={styles.img}
-          source={require('../utils/images/stay-home.png')}
+          style={styles.welcomeImg}
+          source={require('../utils/images/login.png')}
         />
       </View>
       <View style={styles.bottomContainer}>
         <Text style={styles.txtTitle}>{constans.loginGreeting}</Text>
         <Input
           iconName="user"
-          style={styles.input}
+          style={styles.inputContainer}
           placeholderTxt={constans.email}
           onChangeInput={(e) => onChange(e, constans.typeUser)}
         />
         <Input
           iconName="lock"
-          style={styles.input}
+          style={styles.inputContainer}
           placeholderTxt={constans.pw}
           onChangeInput={(e) => onChange(e, constans.typePass)}
         />
@@ -79,7 +76,6 @@ const Login = ({navigation}) => {
         <TouchableOpacity onPress={pleaseRecovery}>
           <Text style={styles.textForgotPW}> {constans.forgotPW} </Text>
         </TouchableOpacity>
-        
       </View>
     </View>
   );

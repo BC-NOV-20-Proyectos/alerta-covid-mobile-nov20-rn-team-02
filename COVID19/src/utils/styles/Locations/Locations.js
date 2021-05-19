@@ -43,12 +43,10 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     width: '100%',
-    padding: 10,
+    padding: 15,
     marginTop: 10,
     borderRadius: 10,
     backgroundColor: colors.o2,
-    flexDirection: 'row',
-    alignItems: 'center',
   },
   textPlace: {
     color: colors.white,
@@ -64,10 +62,6 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '95%',
     height: '15%',
-  },
-  icon: {
-    marginStart: 10,
-    marginRight: 15,
   },
 });
 

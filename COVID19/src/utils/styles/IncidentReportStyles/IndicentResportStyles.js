@@ -1,4 +1,3 @@
-import color from 'color';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import colors from '../../colors';
@@ -7,39 +6,47 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     width: '100%',
+    backgroundColor: colors.o2,
+    padding: 5,
   },
   titleReport: {
     textAlign: 'center',
-    fontSize: 35,
-    marginTop: 40,
-    color: colors.purpleMedium,
+    fontSize: 30,
+    color: colors.white,
+    marginTop: 15,
+    marginBottom: 15,
   },
-  titleCard: {
+  cardTitle: {
     textAlign: 'left',
-    fontSize: 35,
+    fontSize: 25,
     marginTop: 40,
-    color: colors.purpleMedium,
+    color: colors.o2,
   },
   view: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   title: {
-    fontSize: 20,
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: colors.o1,
   },
   value: {
-    fontSize: 15,
+    fontSize: 14,
   },
   cardTitle: {
     fontSize: 25,
+    color: colors.o2,
   },
   titleStatistics: {
-    fontSize: 17,
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: colors.greenDark,
   },
   cardTitleStatistics: {
     alignSelf: 'flex-start',
     fontSize: 20,
-    marginTop: 10,
+    color: colors.o1,
   },
 });
 

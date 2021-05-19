@@ -20,14 +20,7 @@ const menuData = [
     navigationName: 'IncidentReport',
     title: constans.incidentResportTitle,
     description: constans.incidentResportDescription,
-    imageSource: require('../images/vaccine.png'),
-  },
-  {
-    id: 4,
-    navigationName: 'Prevention',
-    title: constans.prevention,
-    description: constans.preventionDescription,
-    imageSource: require('../images/vaccine.png'),
+    imageSource: require('../images/reports.svg'),
   },
 ];
 

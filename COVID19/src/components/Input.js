@@ -14,7 +14,7 @@ const Input = ({placeholderTxt, iconName, onChangeInput}) => {
         style={styles.iconStyle}
       />
       <TextInput
-        style={styles.inputInput}
+        style={styles.inputText}
         placeholder={placeholderTxt}
         secureTextEntry={placeholderTxt === 'Password' && true}
         placeholderTextColor={colors.white}
