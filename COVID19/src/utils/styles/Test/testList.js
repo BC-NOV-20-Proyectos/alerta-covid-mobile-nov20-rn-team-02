@@ -26,8 +26,8 @@ const styles = StyleSheet.create({
     color: colors.white,
   },
   showMessage: {
-    fontSize: 14,
-    color: colors.o3,
+    fontSize: 15,
+    color: colors.greenLight,
   },
   hideMessage: {
     display: 'none',
@@ -35,15 +35,15 @@ const styles = StyleSheet.create({
   flatContainer: {
     backgroundColor: colors.purpleBlue,
     width: '95%',
-    height: '62%',
-    marginTop: 15,
+    height: '68%',
+    marginTop: 10,
     borderRadius: 10,
     padding: 10,
     flexDirection: 'row',
   },
   itemContainer: {
     width: '100%',
-    padding: 10,
+    padding: 15,
     marginTop: 10,
     borderRadius: 10,
     backgroundColor: colors.o2,
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     color: colors.white,
     fontWeight: 'bold',
     fontSize: 18,
+    textTransform: 'uppercase',
   },
   textDate: {
     color: colors.greenLight,

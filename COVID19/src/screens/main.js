@@ -1,5 +1,12 @@
 import React from 'react';
-import {FlatList, View, Text, TouchableOpacity, Image} from 'react-native';
+import {
+  FlatList,
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  Linking,
+} from 'react-native';
 import styles from '../utils/styles/mainStyle';
 import constans from '../utils/constans';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -68,6 +75,12 @@ const Main = ({navigation}) => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
       />
+      <TouchableOpacity
+        style={styles.moreInfo}
+        onPress={() => Linking.openURL(constans.covidCasesUrl)}>
+        <Text style={styles.moreInfoText}>{constans.covidCases}</Text>
+        <Text style={styles.spamInfo}>{constans.goThere}</Text>
+      </TouchableOpacity>
     </View>
   );
 };

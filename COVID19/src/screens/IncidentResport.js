@@ -65,6 +65,7 @@ const IncidentReport = () => {
     <View style={styles.mainContainer}>
       <View style={styles.topContainer}>
         <Text style={styles.titleReport}>{constans.reportTitle}</Text>
+        <Text style={styles.subtitle}>{constans.incidentsReport}</Text>
       </View>
       <FlatList
         data={reportData}
